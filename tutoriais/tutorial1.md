@@ -347,15 +347,15 @@ R é uma linguagem extremamente flexível quanto ao formato de dados que podem s
 
 Com o pacote _foreign_ abriremos arquivos produzidos por outros softwares -- como Stata e SPSS. Podemos também conectar o R a sistemas de gerenciamento de bancos de dados relacionais, como o SQL Server. Finalmente, podemos receber via web arquivos em formato XML ou Json e transformá-los em _data frames_ em poucos passos.
 
-Vamos começar com o exemplo simples. Baixe a amostra de dados chamado denominada "amostra_tutorial1.csv" no material do curso.
+Vamos começar com o exemplo simples. Baixe a amostra de dados chamado denominada "amostra_tutorial1.csv" no material do curso clicando [aqui](https://raw.githubusercontent.com/leobarone/mq_bsb_17/master/dados/amostra_tutorial1.csv)
 
-Diferentemente de outros softwares, no R a "interface Windows", aka "menus e janelas", não oferece a possibilidade executar funções. Porém, na aba _environment_ há um botão muito útil chamado "Import Dataset", que serve para importar para o _workspace_ arquivos em qualquer formato de texto ("From CSV"), MS Excel, Stata, SAS e SPSS.
+Diferentemente de outros softwares, no R a "interface Windows", aka "menus e janelas", não oferece a possibilidade executar funções. Porém, na aba __environment__ há um botão muito útil chamado "Import Dataset", que serve para importar para o __workspace__ arquivos em qualquer formato de texto ("From CSV"), MS Excel, Stata, SAS e SPSS.
 
 Use o botão e a janela para chegar ao arquivo e abrí-lo.
 
-Observe duas mudanças na sua tela. Agora você encontrará o objeto _amostra\_tutorial1_ na aba _Environment_ e o comando de importação dos dados no console, seguido do comando _View_ que provocou a abertura dos dados no RStudio.
+Observe duas mudanças na sua tela. Agora você encontrará o objeto _amostra\_tutorial1_ na aba __Environment__ e o comando de importação dos dados no console, seguido do comando _View_ que provocou a abertura dos dados no RStudio.
 
-Um detalhe importante: agora temos dois _data frames_ (_dados_ e _amostra\_tutorial1_ ) em nosso _workspace_ convivendo com os vetores que criamos. Veja:
+Um detalhe importante: agora temos dois _data frames_ (_dados_, que já estava lá, e _amostra\_tutorial1_, que acabamos de importar) em nosso _workspace_ convivendo com os vetores que criamos. Veja:
 
 ```{r}
 ls()
