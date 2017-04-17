@@ -18,3 +18,4 @@ Duração: 15 horas
 - [Tutorial 1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial1.md) - Bases de dados e data frames
 - Leitura obrigatória: Aquino (2014) [R para cientistas sociais](http://www.uesc.br/editora/livrosdigitais_20140513/r_cientistas.pdf), capítulos 2 e 3
 - Leitura Recomendada: Grolemund, Garrett. 2014. Hands-On Programming with R: Write Your Own Functions and Simulations. “O’Reilly Media, Inc.” – Parte 1
+- [Tutorial 2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial2.md) - Bases de dados e data frames
