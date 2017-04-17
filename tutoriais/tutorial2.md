@@ -1,4 +1,4 @@
-# Tutorial 2 - Uma gramática para bases de dados - parte 1
+# Tutorial 2 - Uma gramática para bases de dados: dplyr
 
 Um dos aspectos mais incríveis da linguagem R é o desenvolvimento de novas funcionalidades pela comunidade de usuários. Algumas das melhores soluções desenvolvidas são relacionadas à "gramática para bases de dados", ou seja, à maneira como importamos, organizamos, manipulamos e extraímos informações das bases de dados.
 
