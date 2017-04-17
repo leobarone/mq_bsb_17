@@ -383,4 +383,4 @@ load("myWorkspace.RData")
 ```{r, include = F}
 file.remove("myWorkspace.RData")
 ```
-
+ 
