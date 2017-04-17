@@ -1,6 +1,6 @@
-# Análise e Sistematização de Big-Data
+# Análise e Sistematização de Big Data
 
-Bem vind@s à página do curso "Análise e Sistematização de Big-Data". Nesta página você encontrará os tutoriais, dados, e demais materiais que utilizaremos no curso, organizados por dia.
+Bem vind@s à página do curso "Análise e Sistematização de Big Data". Nesta página você encontrará os tutoriais, dados, e demais materiais que utilizaremos no curso, organizados por dia.
 
 ## Informações Básicas
 
