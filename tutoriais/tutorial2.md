@@ -70,7 +70,7 @@ Em uma única sequência de operações, alteramos os nomes das variáveis e sel
 
 ## Transformando variáveis
 
-Vimos no exemplo que a variável valor, apesar de conter números, foi lida como texto. Isso ocorre por que o R não entende o uso da vírgula como separador de mlhar. Como resolver um problema desses?
+Vimos no exemplo que a variável valor, apesar de conter números, foi lida como texto. Isso ocorre por que o R não entende o uso da vírgula como separador de milhar. Como resolver um problema desses?
 
 Usaremos a função _mutate_ para operar transformações nas variáveis existentes e criar variáveis novas. Há inúmeras transformações possíveis e elas lembram bastante as funções de outros softwares, como MS Excel. Vamos ver algumas das mais importantes.
 
@@ -109,7 +109,7 @@ Use o comando _View_ para ver as novas variáveis no banco de dados.
 
 As operações de soma, subtração, divisão, multiplicação, módulo entre mais de uma variável ou entre variáveis e valores são válidas e facilmente executadas como acima mostramos.
 
-Nem todas as transformações de variáveis, porém, são operações matemáticas. Vamos transformar a variável valor em uma nova variável que indique se o valor sacado é "Alto" (acima de R\$ 300) ou "Baixo" (abaixo de R\$ 500) com o comando _cut_:
+Nem todas as transformações de variáveis, porém, são operações matemáticas. Vamos transformar a variável valor em uma nova variável que indique se o valor sacado é "Alto" (acima de R\$ 300) ou "Baixo" (abaixo de R\$ 300) com o comando _cut_:
 
 ```{r}
 saques_amostra_201701 <- saques_amostra_201701 %>% 
@@ -174,7 +174,7 @@ Vamos supor agora que apenas os estados do Centro-Oeste nos interessam. Vamos cr
 
 ```{r}
 saques_amostra_CO <- saques_amostra_201701 %>% 
-  filter(uf == "MT" | uf == "MS" | uf == "Df" | uf == "GO")
+  filter(uf == "MT" | uf == "MS" | uf == "DF" | uf == "GO")
 ```
 
 Note que, para dizer que queremos as quatro condições atendidas, utilizamos uma barra vertical. A barra é o símbolo "ou", e indica que todas as observações que atenderem a uma ou outra condição serão incluídas.
@@ -229,7 +229,7 @@ Usando a variável "mes_novo", calcule a contagem, soma e média de valores para
 
 ## Mais de um grupo
 
-E se quisermos agrupar por mais de uma variável? Veja como fazer um agrupamento por "mes"" e "uf", reportando apenas a contagem de saques em cada combinação de grupos:
+E se quisermos agrupar por mais de uma variável? Veja como fazer um agrupamento por "mes" e "uf", reportando apenas a contagem de saques em cada combinação de grupos:
 
 ```{r}
 contagem_uf_mes <- saques_amostra_201701 %>% 
