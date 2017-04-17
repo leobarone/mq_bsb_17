@@ -145,7 +145,7 @@ Respire fundo e gaste um tempo refletindo sobre os "joins". Você acabou de apre
 
 ## Combinação de tabela e agregações cumulativas
 
-Vamos supor que queremos calcular os valores total, médio, máximo, etc, por município e, a seguir, apresentar esses valores como colunas para cada observação. Uma maneira eficiente de fazer isso é a usando a combinação de tabelas. Vamos er como voltando ao exemplo da amostra de saques do Programa Bolsa Família em 2017.
+Vamos supor que queremos calcular os valores total, médio, máximo, etc, por município e, a seguir, apresentar esses valores como colunas para cada observação. Uma maneira eficiente de fazer isso é a usando a combinação de tabelas. Vamos ver como voltando ao exemplo da amostra de saques do Programa Bolsa Família em 2017.
 
 ## Exercício
 
@@ -199,4 +199,4 @@ Use _View_ para observar que a base de dados original tem agora 7 novas colunas 
 
 - Calcule o total de valores por UF em um novo _data frame_.
 - Combine o novo _data frame_ com o original para levar a coluna de total de valores ao último.
-- A seguir, calcule quanto cada indivíduo na amostra representa, em termor percentuais (dica: crie uma nova variável utilizando _mutate_). 
+- A seguir, calcule quanto cada indivíduo na amostra representa, em termos percentuais (dica: crie uma nova variável utilizando _mutate_). 
