@@ -4,7 +4,7 @@ Um dos aspectos mais incríveis da linguagem R é o desenvolvimento de novas fun
 
 Neste tutorial vamos nos concentrar na "gramática" mais popular: o pacote _dplyr_. Já vimos um pouco como ele funciona no primeiro exemplo, com dados dos saques do Bolsa Família em janeiro de 2017. Voltemos a este exemplo, mas agora com uma versão mais simples dos dados extraído aleatoriamente do banco original, com apenas 10 mil saques.
 
-Use o botão "Import Dataset" e abra os dados "saques\_amostra\_201701", que estão no material do curso, para começar.
+Use o botão "Import Dataset" e abra os dados [saques\_amostra\_201701.csv](https://github.com/leobarone/mq_bsb_17/blob/master/dados/saques_amostra_201701.csv), que estão no material do curso, para começar.
 
 ## Renomeando variáveis
 
