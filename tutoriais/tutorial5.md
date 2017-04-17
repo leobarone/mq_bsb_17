@@ -122,7 +122,7 @@ Note que o resultado é semelhante ao de:
 fake$sex
 ```
 
-No entanto, no primeiro caso estamos produzindo um _data frame_ de uma única coluna, enquanto no segundo estamos produzinho um vetor. Exceto pela classe, são idênticos.
+No entanto, no primeiro caso estamos produzindo um _data frame_ de uma única coluna, enquanto no segundo estamos produzindo um vetor. Exceto pela classe, são idênticos.
 
 Segunda e sétima colunas:
 
@@ -154,7 +154,7 @@ Mas o código seguinte não é válido, pois o operador ":" serve somente para g
 fake[, "age":"sex"]
 ```
 
-Vamos super que acabamos de abrir os resultados eleitorais do Rio Grande do Sul nas eleições de 2016 retirados do Repositório de Dados Eleitorais do TSE (exatamente como faremos na atividade que segue este tutorial). Há um número grande de colunas desnecessárias a análise dos resultados (por exemplo, o ano da eleição, a hora da extração dos dados, etc). Para liberar memória do computador e trabalhar com um _data frame_ menor, fazemos uma seleção de colunas exatamente como acima, seja usando sua posição ou seu nome e geramos um _data frame_ novo (ou sobrescrevemos o atual). Veja um exemplo com "fake":
+Vamos supor que acabamos de abrir os resultados eleitorais do Rio Grande do Sul nas eleições de 2016 retirados do Repositório de Dados Eleitorais do TSE (exatamente como faremos na atividade que segue este tutorial). Há um número grande de colunas desnecessárias para a análise dos resultados (por exemplo, o ano da eleição, a hora da extração dos dados, etc). Para liberar memória do computador e trabalhar com um _data frame_ menor, fazemos uma seleção de colunas exatamente como acima, seja usando sua posição ou seu nome e geramos um _data frame_ novo (ou sobrescrevemos o atual). Veja um exemplo com "fake":
 
 ```{r}
 new_fake <- fake[, c("age", "income", "party", "candidate")]
@@ -326,7 +326,7 @@ Algumas observações importantes: se a nova variável tiver 2 categorias, preci
 
 ## Exercício
 
-Crie a variável "poupador", gerada a partir de avings\_year (que criamos anteriormente, antes de transformar "age" em meses), e que separa os indivíduos que poupam muito (mais de FM/$ 1000 por ano) dos que poupam pouco. Use a função _cut_.
+Crie a variável "poupador", gerada a partir de savings\_year (que criamos anteriormente, antes de transformar "age" em meses), e que separa os indivíduos que poupam muito (mais de FM/$ 1000 por ano) dos que poupam pouco. Use a função _cut_.
 
 ## Recodificando uma variável contínua com a função recode
 
@@ -413,7 +413,7 @@ head(fake)
 ```
 
 Você não precisa de um vetor com todos os nomes sempre que precisar alterar algum. Basta conhecer a posição da variável que quer alterar. Veja um exemplo com "marriage", que está na sexta posição:
-
+
 ```{r}
 names(fake)[6] <- "casado"
 ```
