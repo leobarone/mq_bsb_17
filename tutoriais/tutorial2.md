@@ -290,7 +290,7 @@ valores_uf <- saques_amostra_201701 %>%
 Se quisermos rearranjar uma tabela, agora em ordem decrescente de média de valores, por exemplo, usamos _desc_:
 
 ```{r}
-valores_uf <- valores_uf %>% arrange(desc(soma))
+valores_uf <- valores_uf %>% arrange(desc(media))
 ```
 
 Para usar mais de uma variável ao ordenar, basta colocá-las em ordem de prioridade e separá-las por vírgula. No exemplo abaixo ordenamos pela mediana (descendente) e depois pelo máximo:
