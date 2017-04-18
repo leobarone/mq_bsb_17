@@ -31,3 +31,22 @@ Duração: 15 horas
 - Recomendo fortemente a leitura (em inglês) do livro Wickham, Hadley, and Garrett Grolemund. 2016. [R for Data Science: Import, Tidy, Transform, Visualize, and Model Data](http://r4ds.had.co.nz/). “O’Reilly Media, Inc.”. Os capítulos 5, 10 e 11 tratam dos temas que trabalhamos neste segundo dia, mas sugiro a leitura de todo o livro após o curso.
 - Dica: [CheatSheet dplyr - inglês](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-transformation-cheatsheet.pdf)
 - Dica: [CheatSheet dplyr - português](https://www.rstudio.com/wp-content/uploads/2016/03/data-wrangling-cheatsheet-portuguese.pdf)
+
+#### Dias 3 e 4 - 19/04/2017 e 20/04/2017 - Tópicos de Big Data
+
+Como conversamos em sala, vamos trabalhar diferentes "faces" do termo "Big Data" nos dois dias finais de curso. Você poderá escolher quais tópicos deseja aprender durante a semana do curso e seguir com os demais se desejar. Lembre-se: há mais material abaixo do que cabe nas horas do curso. Priorize.
+
+Antes de avançar, porém, tenha certeza que você terminou os tutoriais básicos de R. Os fundamentais são os tutoriais 1 a 3.
+
+##### A - Capturando dados com R
+
+Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das vantagens dos tutoriais deste tópico é lidar com temas de programação em R que não pudemos abordar anteriormente, sobretudo loops e listas.
+
+- Comece pelo [Tutorial A1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA1.md), que é um exemplo simples de raspagem de tabelas em html.
+- A seguir, faça o [Tutorial A2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA2.md), que aprensenta aspectos mais complexos da captura de páginas html e faz uma rápida introdução ao XML.
+- E finalize com o [Tutorial A3](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA3.md), que constrói uma captura completa de sites de notícias.
+
+##### Dados volumosos com R - conectando R a outras bases de dados
+##### Dados volumosos com R - bibliotecas do R
+##### Uma rápida introdução ao aprendizado de máquina com R
+
