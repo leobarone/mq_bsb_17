@@ -45,8 +45,11 @@ Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das v
 - Comece pelo [Tutorial A1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA1.md), que é um exemplo simples de raspagem de tabelas em html.
 - A seguir, faça o [Tutorial A2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA2.md), que aprensenta aspectos mais complexos da captura de páginas html e faz uma rápida introdução ao XML.
 - E finalize com o [Tutorial A3](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA3.md), que constrói uma captura completa de sites de notícias.
+- Quem tiver interesse, pode aprender sobre captura de dados do twitter com R no [Tutorial A4](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA4.md)
 
 ##### Dados volumosos com R - conectando R a outras bases de dados
 ##### Dados volumosos com R - bibliotecas do R
-##### Uma rápida introdução ao aprendizado de máquina com R
 
+##### D - Uma rápida introdução ao aprendizado de máquina com R
+
+- [Tutorial D1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialD1.md)
