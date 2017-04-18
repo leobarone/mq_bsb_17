@@ -33,7 +33,7 @@ Simples, não? A partir deste ponto, basta trabalhar com objeto "tabela" da mesm
 
 Vamos ao exemplo do site Datacamp. Os códigos abaixo funcionarão normalmente no seu computador. O site Datacamp mantém um servidor remoto de MySQL que contém um banco de dados denominado "dplyr". Esta, por sua vez, contém uma tabela também chamada "dplyr" (um pouco confuso, pois não precisaria ter o mesmo nome da base de dados) com informações sobre vôos de companhias aéreas.
 
-Comecemos estabelecendo a conexão com o servidor e o banco de dados, tal como fizemos anteriormente. A diferença, agora, é que estamos lidando com um servidor remoto e por isso precisamos informar seu "endereço". Fazemos isso preenchendo os argumentos "host" e "port", cujos valores foram fornecidos pelos criadores do servidor, além, obviamente, do nome do banco de dados, usuário e senha ("student" e "datacamp", respectivamente).
+Comecemos estabelecendo a conexão com o servidor e o banco de dados, tal como fizemos anteriormente. A diferença, agora, é que estamos lidando com um servidor remoto e por isso precisamos informar seu "endereço". Fazemos isso preenchendo os argumentos "host" e "port", cujos valores foram fornecidos pelos criadores do servidor, além, obviamente, do nome do banco de dados, usuário e senha ("student" e "datacamp", respectivamente). Caso você perca a conexão com o servidor durante este tutorial, basta executar esse comando de novo, sem necessidade de 
 
 ```{r}
 conexao <- src_mysql(dbname = "dplyr", 
@@ -55,19 +55,13 @@ Uma vez conectados com o servidor, fazemos a conexão direta com a tabela "dplyr
 voos <- tbl(conexao, "dplyr")
 ```
 
-Você pode examinar o conteúdo de voos com as funções que já conhecemos: _head_, _str_, etc. Para o nosso exercício, vamos criar a variável "atraso", que é a soma as variáveis atrasos de partidas e chegadas de cada vôo, respectivamente "dep_delay" e "arr_delay". A seguir, vamos agrupar por companhia aérea (variável "carrier"), e calcular a soma agregada dos atrasos das companhias aéras. Tudo isso ser armazenado no objeto "voos_atraso". Note que não há diferença alguma em relação ao que fizemos no passado, exceto o fato de que estamos trabalhando com os dados em um servidor remoto.
+Você pode examinar o conteúdo de voos com as funções que já conhecemos: _head_, _str_, etc (Pela natureza do SQL, ele não nos retorna o número de observações, somente a de variáveis - mas isso é normal e você não precisa se preocupar com isso). Para o nosso exercício, vamos criar a variável "atraso", que é a soma as variáveis atrasos de partidas e chegadas de cada vôo, respectivamente "dep_delay" e "arr_delay". A seguir, vamos agrupar por companhia aérea (variável "carrier"), e calcular a soma agregada dos atrasos das companhias aéras. Tudo isso ser armazenado no objeto "voos_atraso". Note que não há diferença alguma em relação ao que fizemos no passado, exceto o fato de que estamos trabalhando com os dados em um servidor remoto.
 
 ```{r}
 voos_atraso <- voos %>% 
   mutate(atraso =  dep_delay + arr_delay) %>%
   group_by(carrier) %>%
   summarise(total_atraso = sum(atraso))
-```
-
-Quando terminamos de manipular os dados, podemos exportá-los para um arquivo de texto exatamente como fizemos anteriormente. Veja:
-
-```{r}
-write.csv(area_atraso, "atraso.csv")
 ```
 
 ## Tradução dplyr-SQL
