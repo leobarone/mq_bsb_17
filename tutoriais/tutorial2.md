@@ -269,7 +269,7 @@ Quando trabalhamos com bases de dados muito grandes, faz pouco sentido ordená-l
 Se quisermos ordenar, de forma crescente, a tabela de valores por uf pela soma de valores, basta usar o comando _arrange_:
 
 ```{r}
-valores_uf <- valores_uf %>% arrange(soma)
+valores_uf <- valores_uf %>% arrange(media)
 ```
 
 Apenas para ilustrar, poderíamos ter usado o comando _arrange_ diretamente ao gerar a tabela:
