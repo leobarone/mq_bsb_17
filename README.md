@@ -38,6 +38,8 @@ Como conversamos em sala, vamos trabalhar diferentes "faces" do termo "Big Data"
 
 Antes de avançar, porém, tenha certeza que você terminou os tutoriais básicos de R. Os fundamentais são os tutoriais 1 a 3.
 
+- OBS: adicionei ao final do tutorial 3 uma breve explicação sobre exportação de arquivos no R. Se já tiver concluído este tutorial, volte a ele quando precisar.
+
 #### A - Capturando dados com R
 
 Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das vantagens dos tutoriais deste tópico é lidar com temas de programação em R que não pudemos abordar anteriormente, sobretudo loops e listas.
@@ -47,8 +49,13 @@ Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das v
 - E finalize com o [Tutorial A3](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA3.md), que constrói uma captura completa de sites de notícias.
 - Quem tiver interesse, pode aprender sobre captura de dados do twitter com R no [Tutorial A4](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA4.md)
 
-#### Dados volumosos com R - conectando R a outras bases de dados
-#### Dados volumosos com R - bibliotecas do R
+#### B - Dados volumosos com R - conectando R a outras bases de dados
+
+O R trabalha regurlamente armazenando os dados na RAM. Quando tivermos
+
+- [Tutorial B1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB1.md)
+
+#### C - Dados volumosos com R - bibliotecas do R
 
 #### D - Uma rápida introdução ao aprendizado de máquina com R
 
