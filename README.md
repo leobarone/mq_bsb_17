@@ -12,7 +12,7 @@ Duração: 15 horas
 
 ## Materiais
 
-#### Dia 1 - 17/04/2017 - Introdução ao R
+### Dia 1 - 17/04/2017 - Introdução ao R
 
 - Deixamos para a aula seguinte o [Tutorial 0 - Dois exemplos para começar](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial0.md)
 - Começamos com o [Tutorial 1 - Bases de dados e data frames](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial1.md)
@@ -20,7 +20,7 @@ Duração: 15 horas
 - A leitura obrigatória para esta primeira aula é: Aquino (2014) [R para cientistas sociais](http://www.uesc.br/editora/livrosdigitais_20140513/r_cientistas.pdf), capítulos 2 e 3
 - Recomendado também a leitura de: Grolemund, Garrett. 2014. Hands-On Programming with R: Write Your Own Functions and Simulations. “O’Reilly Media, Inc.” – Parte 1
 
-#### Dia 2 - 18/04/2017 - Manipulação de dados no R
+### Dia 2 - 18/04/2017 - Manipulação de dados no R
 
 - Vamos aquecer com o [Tutorial 0 - Dois exemplos para começar](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial0.md). Você não precisa executar o exemplo 1, pois pode demorar muito para baixar os dados. Não perca muito tempo com este tutorial.
 - Seguiremos com o [Tutorial 2 - Uma gramática para bases de dados: dplyr](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial2.md), que alguns tiveram a oportunidade de começar na aula anterior.
@@ -32,13 +32,13 @@ Duração: 15 horas
 - Dica: [CheatSheet dplyr - inglês](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-transformation-cheatsheet.pdf)
 - Dica: [CheatSheet dplyr - português](https://www.rstudio.com/wp-content/uploads/2016/03/data-wrangling-cheatsheet-portuguese.pdf)
 
-#### Dias 3 e 4 - 19/04/2017 e 20/04/2017 - Tópicos de Big Data
+### Dias 3 e 4 - 19/04/2017 e 20/04/2017 - Tópicos de Big Data
 
 Como conversamos em sala, vamos trabalhar diferentes "faces" do termo "Big Data" nos dois dias finais de curso. Você poderá escolher quais tópicos deseja aprender durante a semana do curso e seguir com os demais se desejar. Lembre-se: há mais material abaixo do que cabe nas horas do curso. Priorize.
 
 Antes de avançar, porém, tenha certeza que você terminou os tutoriais básicos de R. Os fundamentais são os tutoriais 1 a 3.
 
-##### A - Capturando dados com R
+#### A - Capturando dados com R
 
 Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das vantagens dos tutoriais deste tópico é lidar com temas de programação em R que não pudemos abordar anteriormente, sobretudo loops e listas.
 
@@ -47,9 +47,9 @@ Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das v
 - E finalize com o [Tutorial A3](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA3.md), que constrói uma captura completa de sites de notícias.
 - Quem tiver interesse, pode aprender sobre captura de dados do twitter com R no [Tutorial A4](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA4.md)
 
-##### Dados volumosos com R - conectando R a outras bases de dados
-##### Dados volumosos com R - bibliotecas do R
+#### Dados volumosos com R - conectando R a outras bases de dados
+#### Dados volumosos com R - bibliotecas do R
 
-##### D - Uma rápida introdução ao aprendizado de máquina com R
+#### D - Uma rápida introdução ao aprendizado de máquina com R
 
 - [Tutorial D1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialD1.md)
