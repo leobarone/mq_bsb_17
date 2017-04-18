@@ -29,4 +29,5 @@ Duração: 15 horas
 - Se sobrar tempo e energia para você em sala (e só se sobrar), faça como atividade extra o [Tutorial 5 - Manipulação de dados com a gramática básica do R](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorial5.md) para aprender sobre a gramática básica do R.
 - A leitura obrigatória para esta primeira aula é: Aquino (2014) [R para cientistas sociais](http://www.uesc.br/editora/livrosdigitais_20140513/r_cientistas.pdf), capítulo 5
 - Recomendo fortemente a leitura (em inglês) do livro Wickham, Hadley, and Garrett Grolemund. 2016. [R for Data Science: Import, Tidy, Transform, Visualize, and Model Data](http://r4ds.had.co.nz/). “O’Reilly Media, Inc.”. Os capítulos 5, 10 e 11 tratam dos temas que trabalhamos neste segundo dia, mas sugiro a leitura de todo o livro após o curso.
-- Dica: [CheatSheet dplyr](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-transformation-cheatsheet.pdf)
+- Dica: [CheatSheet dplyr - inglês](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-transformation-cheatsheet.pdf)
+- Dica: [CheatSheet dplyr - português](https://www.rstudio.com/wp-content/uploads/2016/03/data-wrangling-cheatsheet-portuguese.pdf)
