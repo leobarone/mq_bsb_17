@@ -36,7 +36,7 @@ pagina <- xmlRoot(pagina)
 
 Excelente. Com o objeto XML preparado e representando a página com a qual estamos trabalhando, vamos à caça das informações que queremos.
 
-Volte para a página da notícia. Procure o título da notícia e examine-o, inspencionando o código clicando com o botão direito do mouse e selecionando "Inspecionar". Note o que encontramos:
+Volte para a página da notícia. Procure o título da notícia e examine-o, inspecionando o código clicando com o botão direito do mouse e selecionando "Inspecionar". Note o que encontramos:
 
 ```{r}
 <h1 class="main_color main_title"><!--TITULO-->49% não votariam em Lula<!--/TITULO--></h1>
@@ -74,7 +74,7 @@ texto <- xpathSApply(pagina, "//article[@class = 'news']" , xmlValue)
 print(texto)
 ```
 
-Por outro lado, se espificamos a tag "p" ao final do xpath, recebemos um vetor contendo cada um dos parágrafos do texto. Precisaríamos "juntar" (concatenar) todos os parágrafos para formar um texto único.
+Por outro lado, se especificamos a tag "p" ao final do xpath, recebemos um vetor contendo cada um dos parágrafos do texto. Precisaríamos "juntar" (concatenar) todos os parágrafos para formar um texto único.
 
 ```{r}
 texto <- xpathSApply(pagina, "//article[@class = 'news']/p" , xmlValue)
@@ -111,7 +111,7 @@ O link está no objeto "pesquisa":
 print(pesquisa)
 ```
 
-Usando a função download.file, rapidamente salvamos o link no "working directory" (use "getwd()" para descobrir qual é o seu) e com o nome "pesquisa.pdf" (poderíamos salvar com o nome que quisessemos):
+Usando a função download.file, rapidamente salvamos o link no "working directory" (use "getwd()" para descobrir qual é o seu) e com o nome "pesquisa.pdf" (poderíamos salvar com o nome que quiséssemos):
 
 ```{r}
 getwd()
@@ -144,7 +144,7 @@ Vamos construir o código da primeira etapa da captura e, uma vez resolvida a pr
 
 ## Código da etapa 1
 
-Em primeiro lugar, vamos observar o URL da página de busca (poderíamos buscar termos chave, mas, neste caso, vamos pegar todas as notícias relacionadas a eleições).Na página 2 da busca vemos que o final é "sr=26". Na página 3 o final é "sr=51". Há um padrão: as buscas são realizadas de 25 em 25. De fato, a 21a. é última página da busca. Para "passarmos" de página em página, portanto, temos que ter um "loop" que conte não mais de 1 até 21, mas na seguinte sequência numérica: {1, 26, 51, 76, ..., 476, 501}.
+Em primeiro lugar, vamos observar o URL da página de busca (poderíamos buscar termos chave, mas, neste caso, vamos pegar todas as notícias relacionadas a eleições). Na página 2 da busca vemos que o final é "sr=26". Na página 3 o final é "sr=51". Há um padrão: as buscas são realizadas de 25 em 25. De fato, a 21a. é última página da busca. Para "passarmos" de página em página, portanto, temos que ter um "loop" que conte não mais de 1 até 21, mas na seguinte sequência numérica: {1, 26, 51, 76, ..., 476, 501}.
 
 Parece difícil, mas é extremamente simples. Veja o loop abaixo, que imprime a sequência desejada multiplicando (i - 1) por 25 e somando 1 ao final:
 
