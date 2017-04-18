@@ -167,7 +167,7 @@ O caminho das "tags" que contém a informação "partido" em nosso exemplo fict�
 
 Seguindo tal caminho chegamos às três "tags" que contém a informação desejada.
 
-Simples, não? Mas há um problema: o que fazer quando chegamos a 3 informações diferentes (o indivíuo em nosso exemplo foi eleito duas vezes pelo PAN e uma pelo PRONA)? Há duas alternativa: a primeira, ficamos com as 3 informações armazenadas em um vetor, pois as 3 informações interessam. Isso ocorrerá com frequência.
+Simples, não? Mas há um problema: o que fazer quando chegamos a 3 informações diferentes (o indivíduo  em nosso exemplo foi eleito duas vezes pelo PAN e uma pelo PRONA)? Há duas alternativa: a primeira, ficamos com as 3 informações armazenadas em um vetor, pois as 3 informações interessam. Isso ocorrerá com frequência.
 
 Mas se quisermos apenas uma das informações, por exemplo, a de quando o indivíduo foi eleito deputado estadual? Podemos usar os atributos e os valores dos atributos das tag para construir o caminho. Neste caso, teríamos como caminho: 
 
@@ -175,7 +175,7 @@ Mas se quisermos apenas uma das informações, por exemplo, a de quando o indiv�
 
 Guarde bem este exemplo: ele será nosso modelo quando tentarmos capturar páginas.
 
-Vamos supor que queremos poupar nosso trabalho e sabemos que as únicas "tags" com nome "partido" no nosso documento são aquelas que nos interessam (isso nunca é verdade em um documento HTML). Podemos simplicar nosso caminho de forma a identificar "todas as 'tags' '', não importa em qual nível hierarquíco do documento". Neste caso, basta usar duas barras:
+Vamos supor que queremos poupar nosso trabalho e sabemos que as únicas "tags" com nome "partido" no nosso documento são aquelas que nos interessam (isso nunca é verdade em um documento HTML). Podemos simplificar nosso caminho de forma a identificar "todas as 'tags' '', não importa em qual nível hierárquico do documento". Neste caso, basta usar duas barras:
 
 "//partido"
 
@@ -211,7 +211,7 @@ A tag li, por sua vez, é filha da tag "ul" ("unordered list"), ou seja, é a ta
 
 "//ul/li/a"
 
-E se houver mais de uma "unordered list" na página? Observe que essa tag "ul" tem atributos: class="lista_navegacao". Algumas tem função para o usuário da página -- por exemplo, as tags "a" contém o atributo "href", que é o link do elemento "clicável". Mas, em geral, em uma página de internet os atributos não fazem nada além de identificar as tags para @ programador@. Diversos programas para construção de páginas criam atributos automaticamente. Por exemplo, se vocë fizer um blog em uma ferramenta qualquer de construção de blogs, sua página terá tags com atributos que você sequer escolheu.
+E se houver mais de uma "unordered list" na página? Observe que essa tag "ul" tem atributos: class="lista_navegacao". Algumas tem função para o usuário da página -- por exemplo, as tags "a" contém o atributo "href", que é o link do elemento "clicável". Mas, em geral, em uma página de internet os atributos não fazem nada além de identificar as tags para @ programador@. Diversos programas para construção de páginas criam atributos automaticamente. Por exemplo, se você fizer um blog em uma ferramenta qualquer de construção de blogs, sua página terá tags com atributos que você sequer escolheu.
 
 As tags mais comum em páginas HTML são: head, body, div, p, a, table, tbody, td, ul, ol, li, etc. Os atributos mais comuns são: class, id, href (para links), src (para imagens), etc. Em qualquer tutorial básico de HTML você aprenderá sobre elas. Novamente, não precisamos aprender nada sobre HTML e suas tags. Apenas precisamos compreender sua estrutura e saber navegar nela.
 
@@ -264,7 +264,7 @@ class(pagina)
 
 Vamos agora aprender a "navegar" um objeto XML dentro do R e extrair dele apenas o conteúdo que nos interessa.
 
-Basicamente, trabalharemos nas atividades com um conjunto limitado funções: "getNodeSet", que extrai um pedaço (nodes) de um documento XML; "xmlValues", que extrai de um node o seu conteúdo; e "xmlGetAttr", que extrai os valores dos atributos específicados.
+Basicamente, trabalharemos nas atividades com um conjunto limitado funções: "getNodeSet", que extrai um pedaço (nodes) de um documento XML; "xmlValues", que extrai de um node o seu conteúdo; e "xmlGetAttr", que extrai os valores dos atributos especificados.
 
 Vamos trabalhar com a ferramenta de busca da página inicial da ALESP, em particular com a página 2 de uma busca qualquer.
 
@@ -309,7 +309,7 @@ print(nodes_link[[1]])
 
 Trata-se de uma tag "a", com dois atributos, "class" e "href", sendo que o valor deste último é o link para o qual seríamos direcionados ao clicar no conteúdo apresentado na página, que é o texto "Lei no. 10.945, de 26/10/2001 ( Lei 10945/2001 )". Chegamos rapidamente à informação que desejávamos, mas ainda não temos ela de forma adequadamente organizada.
 
-O que nos interessa é extrair diretamente o valor dos atributos (se tiverem alguma informação valiosa) e o conteúdo. Vamos treinar com a primeira posição e extratir primeiro o conteúdo:
+O que nos interessa é extrair diretamente o valor dos atributos (se tiverem alguma informação valiosa) e o conteúdo. Vamos treinar com a primeira posição e extrair primeiro o conteúdo:
 
 ```{r}
 conteudo_1 <- xmlValue(nodes_link[[1]])
@@ -323,7 +323,7 @@ atributo_1 <- xmlGetAttr(nodes_link[[1]], name = "href")
 print(atributo_1)
 ```
 
-Excelente, não? Se quisessemos apenas a informação do primeiro link resultante da busca, teríamos terminado nossa tarefa. Mas queremos os 10 links. Vamos ver duas maneiras ineficientes de construir um data frame que contenha uma variável com os conteúdos e a outra com os links. Tente decifrá-las:
+Excelente, não? Se quiséssemos apenas a informação do primeiro link resultante da busca, teríamos terminado nossa tarefa. Mas queremos os 10 links. Vamos ver duas maneiras ineficientes de construir um data frame que contenha uma variável com os conteúdos e a outra com os links. Tente decifrá-las:
 
 Sem usar o "for loop":
 
@@ -378,7 +378,7 @@ head(dados)
 
 Excelente! Temos um data frame após a raspagem.
 
-Há, porém, uma forma mais rápida de resolver o problema: usando a função "xpathSApply". Basicamente, esta função serve para aplicar outra função, como "xmlValue" ou "xmlGetAttr", automaticamente para um conjunto de nodes, sem precisarmos fazer o que fizemos acima com o "for loop". Em outras palavras, é como se combinassemos a função "getNodeSet", com outra de nossa escolha e já aplicassemos a função a todo o resultado de "getNodeSet" em loop. Veja como funciona e note que a função "xmlValue" entra como argumento da função "xpathSApply":
+Há, porém, uma forma mais rápida de resolver o problema: usando a função "xpathSApply". Basicamente, esta função serve para aplicar outra função, como "xmlValue" ou "xmlGetAttr", automaticamente para um conjunto de nodes, sem precisarmos fazer o que fizemos acima com o "for loop". Em outras palavras, é como se combinássemos a função "getNodeSet", com outra de nossa escolha e já aplicássemos a função a todo o resultado de "getNodeSet" em loop. Veja como funciona e note que a função "xmlValue" entra como argumento da função "xpathSApply":
 
 ```{r}
 conteudos <- xpathSApply(pagina, "//ul[@class='lista_navegacao']/li/a", xmlValue)
@@ -420,7 +420,7 @@ urlbase <- "http://www.al.sp.gov.br/alesp/busca/?q=merenda&page="
 
 Como é possível reparar, o número da página fica ao final do link, por isso podemos utilizar uma nova função chamada "paste" ou "colar" ao invés da função "gsub".
 
-O que faremos é colar nosso contador (o "i", aquilo que vai mudar a cada vez que o loop realizar uma iteração) no final do link. Então o que queremos é uma combinação do nosso url com o contador sem nada separando os dois. A função "paste" é ideal para isso e funciona com os argumentos da seguinte maneira: primeirao texto a ser colado, segundo texto a ser colado, terceiro, ...,  último, e, finalmente, a especificação de qual é o separador que você deseja entre os textos (pode ser vazio "").
+O que faremos é colar nosso contador (o "i", aquilo que vai mudar a cada vez que o loop realizar uma iteração) no final do link. Então o que queremos é uma combinação do nosso url com o contador sem nada separando os dois. A função "paste" é ideal para isso e funciona com os argumentos da seguinte maneira: primeiro texto a ser colado, segundo texto a ser colado, terceiro, ...,  último, e, finalmente, a especificação de qual é o separador que você deseja entre os textos (pode ser vazio "").
 
 Na linguagem do R, escreveremos assim para o nosso caso:
 
