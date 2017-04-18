@@ -1,6 +1,6 @@
 # Tutorial 4 - Abrindo dados no R
 
-Neste tutorial vamos cobrir uma série de métodos disponíveis para abrirmos arquivos de texto. excel e de outros softwares de análise de dadoss no R. Vamos dar atenção aos argumentos das funções de forma a solucionar dificuldades de abertura de dados com diferentes características ou em sistemas operacionais variados.
+Neste tutorial vamos cobrir uma série de métodos disponíveis para abrirmos arquivos de texto. excel e de outros softwares de análise de dados no R. Vamos dar atenção aos argumentos das funções de forma a solucionar dificuldades de abertura de dados com diferentes características ou em sistemas operacionais variados.
 
 ## Abrindo dados com da funções do pacote utils
 
@@ -158,7 +158,7 @@ Note que, agora, "uf" e "munic" são importadas como "character".
 
 Finalmente, é comum termos problemas para abrir arquivos que contenham caracteres especiais, pois há diferentes formas do computador transformar 0 e 1 em vogais acentuadas, cecedilha, etc. O "encoding" de cada arquivo varia de acordo com o sistema operacional e aplicativo no qual foi gerado.
 
-Para resolver este problema, informamos ao R o parâmetro "fileEncoding", que indica qual é o "encoding" esperado do arquivo. Infelizmente não há formas automáticas de descobrir o "encoding" de um arquivo e é preciso conhecer como foi gerado -- seja por que você produziu o arquivo ou por que teve acesso à documentação -- ou partir para tentativa e erro. Alguns "encodings" comuns são "latin1", "latin2" e "utf8", mas há diversos outros. Comoo arquivo com o qual estamos trabalhando não contém caracteres especiais, não é preciso fazer nada.
+Para resolver este problema, informamos ao R o parâmetro "fileEncoding", que indica qual é o "encoding" esperado do arquivo. Infelizmente não há formas automáticas de descobrir o "encoding" de um arquivo e é preciso conhecer como foi gerado -- seja por que você produziu o arquivo ou por que teve acesso à documentação -- ou partir para tentativa e erro. Alguns "encodings" comuns são "latin1", "latin2" e "utf8", mas há diversos outros. Como arquivo com o qual estamos trabalhando não contém caracteres especiais, não é preciso fazer nada.
 
 ## Tibbles e tidyverse
 
@@ -300,7 +300,7 @@ Com _excel\_sheets_ examinamos quais são as planilhas existentes do no arquivo:
 excel_sheets(arquivo)
 ```
 
-No caso, temos 11 planilhas diferentes (e um bocao de mensagens de erro estranhas). O dicionário, para quem já trabalhou alguma vez com a MUNIC, não é uma base de dados, apenas textos espalhados entre células. As demias, no entanto, têm formato adequado para _data frame_.
+No caso, temos 11 planilhas diferentes (e muitas de mensagens de erro estranhas). O dicionário, para quem já trabalhou alguma vez com a MUNIC, não é uma base de dados, apenas textos espalhados entre células. As demias, no entanto, têm formato adequado para _data frame_.
 
 Vamos importar os dados da planilha "Variáveis externas". Todas duas maneiras abaixo se equivalem:
 
@@ -328,7 +328,7 @@ library(haven)
 
 Basicamente, há cinco funções de importação de dados em _haven_: _read\_sas_, para dados em SAS; _read\_stata_ e _read\_dta_, idênticas, para dados em formato .dta gerados em Stata; e _read\_sav_ e _read\_por_, uma para cada formato de dados em SPSS. O uso, como era de se esperar, é bastante similar ao que vimos no tutorial todo.
 
-Vamos usar como exemplo o [Latinobarômetro 2015](http://www.latinobarometro.org/latContents.jsp), que está disponível para SAS, Stata, SPSS e R. Como os arquivos são grandes demais e o portal do Latinobarômetro é "cheio de javascript" (dá mais trabalho pegar dados de um portal com funcionalidades construídas nesta linguagem), vamos fazer o processo manual de baixar os dados, descompactá-los e abrí-los. Vamos ignorar SAS por razões que não interessam agora e por não ser uma linguagem popular nas ciências se sociais, mas se você tiver interesse em saber mais, me procure.
+Vamos usar como exemplo o [Latinobarômetro 2015](http://www.latinobarometro.org/latContents.jsp), que está disponível para SAS, Stata, SPSS e R. Como os arquivos são grandes demais e o portal do Latinobarômetro é "cheio de javascript" (dá mais trabalho pegar dados de um portal com funcionalidades construídas nesta linguagem), vamos fazer o processo manual de baixar os dados, descompactá-los e abrí-los. Vamos ignorar SAS por razões que não interessam agora e por não ser uma linguagem popular nas ciências sociais, mas se você tiver interesse em saber mais, me procure.
 
 Deixo abaixo uma breve descrição do Latinobarômetro que "roubei" de outro curso que ministrei. É possível que façamos exercícios com o Latinobarômetro no futuro, dado que é um banco de dados com muitas (muitas mesmo) variáveis categóricas, posto que é survey.
 
