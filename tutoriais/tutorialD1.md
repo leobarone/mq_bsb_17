@@ -64,7 +64,7 @@ Vamos deixar estes dados de lado e voltaremos a ele nas atividades do tutorial.
 
 Regressão linear, ou mínimos quadrados ordinários, é uma das técnicas estísticas de maior popularidade em vários campos científicos, inclusive nas humanidades, e muito utilizada para avaliação de políticas públicas.
 
-Nosso objetivo neste tópicp não será discutir em profundidade modelos lineares, mas apresentar como podemos utilizá-los para fazer previsões. Em particular, tentaremos prever uma quantidade (variável contínua) a partir de uma ou mais variáveis.
+Nosso objetivo neste tópico não será discutir em profundidade modelos lineares, mas apresentar como podemos utilizá-los para fazer previsões. Em particular, tentaremos prever uma quantidade (variável contínua) a partir de uma ou mais variáveis.
 
 Nosso primeiro exemplo de livro texto será com os _data frame_ Wage, disponível no pacote ISLR. Baixe o pacote (se não estiver instalado em seu computador), carregue-o e use a função _data_ para tornar "Wage" disponível. Utilize a função _glimpse_ do pacote _dplyr_ para conhecer os dados.
 
@@ -87,7 +87,7 @@ Utilize a função _summary_ para conhecer o resultado do modelo:
 summary(modelo)
 ```
 
-Vamos deixar a interpretaão estatística de lado, mas vamos explorar os coeficientes estimados ("Estimate"). _(Intercept)_ indica o valor esperado no modelo para um indivíduo de idade igual a 0 (ainda que isso seja impossível). Ou seja, este é o ponto em que a reta de regressão encontra com o eixo "y". Veja graficamente o resultado com o comando abaixo. Note que quando trabalhamos com duas dimensões, como estamos fazendo, a reta é a representação gráfica do modelo.
+Vamos deixar a interpretação estatística de lado, mas vamos explorar os coeficientes estimados ("Estimate"). _(Intercept)_ indica o valor esperado no modelo para um indivíduo de idade igual a 0 (ainda que isso seja impossível). Ou seja, este é o ponto em que a reta de regressão encontra com o eixo "y". Veja graficamente o resultado com o comando abaixo. Note que quando trabalhamos com duas dimensões, como estamos fazendo, a reta é a representação gráfica do modelo.
 
 ```{r}
 plot(Wage$age, Wage$wage, pch = 3)
@@ -96,7 +96,7 @@ abline(a = 81.70474, b = 0.70728, col = "red", lwd = 3)
 
 Voltando ao modelo estimado, vemos que a estimativa para "age" é 0.7073. Este coeficiente indica que a reta tem inclinação tal que, para cada acréscimo de um ano, espera-se que o salário aumente em 0.7073. Ou seja, idade e salário têm entre si uma relação positiva.
 
-Quão bom é nosso modelo? Em outras palavras, o modelo consegue prever adequadamente o salário a partir da idade? Bons modelos de previsão são aqueles cujos valores previstos. O que acabamos de produzir não parece ser muito bom. Para cada valor de idade, há uma variação muito grande nos valores observados de salário e vários deles bastante afastados da reta que representa nosso modelo. Podemos produir um vetor dos valores previstos com o comando _predict_ e tentar acessar qual é a qualidade do modelo:
+Quão bom é nosso modelo? Em outras palavras, o modelo consegue prever adequadamente o salário a partir da idade? Bons modelos de previsão são aqueles cujos valores previstos. O que acabamos de produzir não parece ser muito bom. Para cada valor de idade, há uma variação muito grande nos valores observados de salário e vários deles bastante afastados da reta que representa nosso modelo. Podemos produir um vetor dos valores previstos com o comando _predict_ e tentar avaliar qual é a qualidade do modelo:
 
 ```{r}
 prev <- predict(modelo)
@@ -158,6 +158,7 @@ A medida mais comumente utilizada para avaliar a qualidade de um modelo de regre
 
 ```{r}
 rmse <- sqrt(mean((teste$wage - prev_teste)^2))
+print(rmse)
 ```
 
 ## Algoritmos de previsão - regressão linear múltipla
@@ -196,8 +197,13 @@ teste <- diamonds[(n_treino + 1):n,]
 E, finalmente, estimar o modelo com os dados de treino, fazer a previsão dos dados de teste e  
 
 ```{r}
-modelo <- lm(price ~ ., train)
-prev_teste <- predict(model, test)
+modelo <- lm(price ~ ., treino)
+prev_teste <- predict(modelo, teste)
+```
+Vamos ver num gráfico como que a estimativa do preço do diamante dada pelo modelo nos dados de treino se aproxima do dados de teste:
+
+```{r}
+plot(prev_teste, teste$price)
 ```
 
 ## Atividade com dados do MDS
@@ -385,7 +391,12 @@ hc_clusters <- cutree(hc_iris, k = 3)
 Para finaliza, vamos comparar o resultado de ambas análises com as espécies das plantas (que já conheciamos previamente) e entre si:
 
 ```{r}
+#comparando as classificações que conhecemos com as previstas por cluster hierárquico
 table(iris$Species, hc_clusters)
-table(km_iris$cluster, hc_clusters)
+
+#comparando as classificações que conhecemos com as previstas por cluster kmeans
 table(iris$Species, km_iris$cluster)
+
+#comparando as classificações previstas pelo cluster hierárquico com as previstas por cluster kmeans
+table(km_iris$cluster, hc_clusters)
 ```
