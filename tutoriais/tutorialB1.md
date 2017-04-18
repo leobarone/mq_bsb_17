@@ -33,7 +33,7 @@ Simples, não? A partir deste ponto, basta trabalhar com objeto "tabela" da mesm
 
 Vamos ao exemplo do site Datacamp. Os códigos abaixo funcionarão normalmente no seu computador. O site Datacamp mantém um servidor remoto de MySQL que contém um banco de dados denominado "dplyr". Esta, por sua vez, contém uma tabela também chamada "dplyr" (um pouco confuso, pois não precisaria ter o mesmo nome da base de dados) com informações sobre vôos de companhias aéreas.
 
-Comecemos estabelecendo a conexão com o servidor e o banco de dados, tal como fizemos anteriormente. A diferença, agora, é que estamos lidando com um servidor remoto e por isso precisamos informar seu "endereço". Fazemos isso preenchendo os argumentos "host" e "port", cujos valores foram fornecidos pelos criadores do servidor, além, obviamente, do nome do banco de dados, usuário e senha ("student" e "datacamp", respectivamente). Caso você perca a conexão com o servidor durante este tutorial, basta executar esse comando de novo, sem necessidade de 
+Comecemos estabelecendo a conexão com o servidor e o banco de dados, tal como fizemos anteriormente. A diferença, agora, é que estamos lidando com um servidor remoto e por isso precisamos informar seu "endereço". Fazemos isso preenchendo os argumentos "host" e "port", cujos valores foram fornecidos pelos criadores do servidor, além, obviamente, do nome do banco de dados, usuário e senha ("student" e "datacamp", respectivamente). 
 
 ```{r}
 conexao <- src_mysql(dbname = "dplyr", 
