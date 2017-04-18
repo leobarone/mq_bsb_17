@@ -4,13 +4,13 @@ Importar dados no R até agora foi algo simples com o auxílio do botão "Import
 
 Infelizmente, nenhum dos dois recursos são suficientes para lidar com volume de dados muito grandes, a exemplo dos dados do Programa Bolsa Família retirados do Portal da Transparência e do Cadastro Único.
 
-Há várias maneiras de resolver este problema. Para este curso, ficaremos com as mais simples, porém bastante eficientes. A primeira delas, mostrada no exemplo 1 do início da apostila, é o uso do pacote _data.table_. A segunda, bastante útil para trabalhar com dados já desenhandos e organizado é outras ferramentas como MySQL, MariaDB, PostgreSQL ou BigQuery. No nosso exemplo vamos  é conectar o R a um servidor MySQL, bastante popular para a getsão de bancos de dados relacionais volumosos e usado por diversas empresas e governos. Vejamos as duas soluções.
+Há várias maneiras de resolver este problema. Para este curso, ficaremos com as mais simples, porém bastante eficientes. A primeira delas, mostrada no exemplo 1 do início da apostila, é o uso do pacote _data.table_. A segunda, bastante útil para trabalhar com dados já desenhandos e organizado é outras ferramentas como MySQL, MariaDB, PostgreSQL ou BigQuery. No nosso exemplo vamos  é conectar o R a um servidor MySQL, bastante popular para a gestão de bancos de dados relacionais volumosos e usado por diversas empresas e governos. Vejamos as duas soluções.
 
 ## Data Table e bases de porte médio
 
-_data.table_ foi um pacote desenvolvido para oferecer uma nova gramática de dados. Nossa escolha foi trabalhar com a gramática oferecido pelo pacote _dplyr_, mas convém examinar duas funções do pacote _data.table_: _fread_ e _fwrite_.
+_data.table_ foi um pacote desenvolvido para oferecer uma nova gramática de dados. Nossa escolha foi trabalhar com a gramática oferecida pelo pacote _dplyr_, mas convém examinar duas funções do pacote _data.table_: _fread_ e _fwrite_.
 
-_fread_ é uma alternativa bastante eficiente o uso do botão "Import Dataset" e da função _read.table_ (e sua família). Além de mais rápida, ela identifica a estrutura dos dados para não precisarmos inspecioná-los. Veja como aplicá-la, por exemplo, à versão completa dos dados de saques do Programa Bolsa Família em janeiro de 2017. Veja que você deve inserir o caminho completo do arquivo
+_fread_ é uma alternativa bastante eficiente do uso do botão "Import Dataset" e da função _read.table_ (e sua família). Além de mais rápida, ela identifica a estrutura dos dados para não precisarmos inspecioná-los. Veja como aplicá-la, por exemplo, à versão completa dos dados de saques do Programa Bolsa Família em janeiro de 2017. Veja que você deve inserir o caminho completo do arquivo
 
 ```{r}
 saques <- fread("C://endereco//no//seu//computador//201701_BolsaFamiliaSacado.csv")
@@ -32,7 +32,7 @@ Uma das soluções mais simples para trabalharmos com bases de dados grandes em 
 
 O MySQL não armazena os dados na memória RAM, mas no disco rígido. Isso expande bastante o limite do tamanho dos dados que conseguiremos gerenciar, sem, no entanto, precisar de outra "gramática" para manipulação de dados.
 
-O primeiro passo importante para trabalhr com dados em um servidor MySQL é fazer a conexão com uma base de dados. Vamos supor que temos um banco de dados (que, para o MySQL, significa um conjunto de tabelas, e não apenas uma tabela) chamado "PBF" em um servidor local, ou seja, no próprio computador, e que dentro desse banco de dados existe a tabela "transferencias201701". O usuário e senha fictícias são, respectivamente, "root" e "pass". Usamos, então, a função _src\_mysql_ para criar um objeto de "conexão", que chamaremos de "bd_mysql". Obviamente, o código abaixo não funcionará no seu computador.
+O primeiro passo importante para trabalhar com dados em um servidor MySQL é fazer a conexão com uma base de dados. Vamos supor que temos um banco de dados (que, para o MySQL, significa um conjunto de tabelas, e não apenas uma tabela) chamado "PBF" em um servidor local, ou seja, no próprio computador, e que dentro desse banco de dados existe a tabela "transferencias201701". O usuário e senha fictícias são, respectivamente, "root" e "pass". Usamos, então, a função _src\_mysql_ para criar um objeto de "conexão", que chamaremos de "bd_mysql". Obviamente, o código abaixo não funcionará no seu computador.
 
 ```{r}
 bd_mysql <- src_mysql(dbname = "PBF", 
