@@ -21,7 +21,7 @@ Vamos começar visitando o site portal da transparencia: http://www.portaldatran
 71033 * 15 
 ```
 
-São 1.065.495 servidores ao todo!!!! Temos a informação de alguns dígitos do CPF, nome, orgão de lotação, orgão de exercício e jornada de trabalho. Todas essas informacoes são públicas!
+São 1.065.495 servidores ao todo!!!! Temos a informação de alguns dígitos do CPF, nome, orgão de lotação e orgão de exercício. Todas essas informacoes são públicas!
 
 Nossa primeira atividade consiste em capturar estas informações. Vamos, no decorrer da atividade aprender bastante sobre R, objetos, estruturas de dados, loops e captura de tabelas em HTML
 
@@ -200,7 +200,7 @@ for (i in 1:5) {
 
 Vamos observar o resultado utilizando a função _str_, que retorna a estrutura do data frame, e _tail_, que é como a função _head_, mas retorna as 6 últimas em vez das 6 primeiras observações.
 
-São 75 observações (5 páginas com 15 pessoas) e 5 variáveis (CPF, nome, órgão de lotação, órgão de exercício e jornada de trabalho), exatamente como esperávamos. As 5 variáveis são do tipo "character" contêm as informações corretas. As 6 observações apresentam o resultado adequado, o que nos dá uma boa dica que que tudo ocorreu bem até a última página capturada.
+São 75 observações (5 páginas com 15 pessoas) e 4 variáveis (CPF, nome, órgão de lotação e órgão de exercício), exatamente como esperávamos. As 4 variáveis são do tipo "character" contêm as informações corretas. As 6 observações apresentam o resultado adequado, o que nos dá uma boa dica que que tudo ocorreu bem até a última página capturada.
 
 ```{r}
 # Estrutura do data frame
