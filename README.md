@@ -38,25 +38,49 @@ Como conversamos em sala, vamos trabalhar diferentes "faces" do termo "Big Data"
 
 Antes de avançar, porém, tenha certeza que você terminou os tutoriais básicos de R. Os fundamentais são os tutoriais 1 a 3.
 
-- OBS: adicionei ao final do tutorial 3 uma breve explicação sobre exportação de arquivos no R. Se já tiver concluído este tutorial, volte a ele quando precisar.
+OBS: adicionei ao final do tutorial 3 uma breve explicação sobre exportação de arquivos no R. Se já tiver concluído este tutorial, volte a ele quando precisar.
+
+- A leitura obrigatória para as duas últimas aulas é: Aquino (2014) [R para cientistas sociais](http://www.uesc.br/editora/livrosdigitais_20140513/r_cientistas.pdf), capítulo 7 e 8.
 
 #### A - Capturando dados com R
 
 Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das vantagens dos tutoriais deste tópico é lidar com temas de programação em R que não pudemos abordar anteriormente, sobretudo loops e listas.
 
-- Comece pelo [Tutorial A1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA1.md), que é um exemplo simples de raspagem de tabelas em html.
-- A seguir, faça o [Tutorial A2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA2.md), que aprensenta aspectos mais complexos da captura de páginas html e faz uma rápida introdução ao XML.
-- E finalize com o [Tutorial A3](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA3.md), que constrói uma captura completa de sites de notícias.
-- Quem tiver interesse, pode aprender sobre captura de dados do twitter com R no [Tutorial A4](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA4.md)
+- Comece pelo [Tutorial A1 - Webscrapping do portal da transparência - tabelas](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA1.md), que é um exemplo simples de raspagem de tabelas em html.
+- A seguir, faça o [Tutorial A2 - Webscrapping de um portais de notícias - ALESP](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA2.md), que aprensenta aspectos mais complexos da captura de páginas html e faz uma rápida introdução ao XML.
+- E finalize com o [Tutorial A3 - Webscrapping de um portais de notícias - DataFolha](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA3.md), que constrói uma captura completa de sites de notícias.
+- Quem tiver interesse, pode aprender sobre captura de dados do twitter com R no [Tutorial A4 - Dados de Redes Sociais - Twitter](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialA4.md)
+- A principal referência (leitura recomendada) para este tópico é: Nolan, D., &amp; Temple Lang, D. (2014). XML and Web Technologies for Data Sciences with R. New York, NY: Springer New York.
 
 #### B - Dados volumosos com R - conectando R a outras bases de dados
 
-O R trabalha regurlamente armazenando os dados na RAM. Quando tivermos
+O R trabalha regurlamente armazenando os dados na RAM. Quando o volume de dado superar a memória RAM temos de buscar outras soluções. A solução mais simples é utilizar um sistema de gerenciamento de banco de dados (SGBD) que permita superar os limites de armazenamento de dados. Uma das soluções mais simples é utilizar um SGBD para a qual há pacotes em R que facilitem a conexão e manipulação de dados.
 
-- [Tutorial B1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB1.md)
+- Para ver como trabalhar com dados em MySQL, PostgreSQL, MariaDB, SQLite e BigQuery, faça o [Tutorial B1 - R, dplyr e SQL](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB1.md). A grande vantagem de integram algum desses SGBD com o R é o fato de que não precisamos conhecer nada da linguagem SQL para manipular os dados no servidor (local ou remoto). Basta utilizar os verbos do _dplyr_ que vimos nos tutoriais anteriores.
+- Por conta da demanda de trabalho dos participantes do curso, apresento um tutorial rápido para conexão e manipulação de dados no TeraData via R no Tutorial B2 (em breve).
 
 #### C - Dados volumosos com R - bibliotecas do R
 
+(Disponível apenas na quinta-feira)
+
 #### D - Uma rápida introdução ao aprendizado de máquina com R
 
-- [Tutorial D1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialD1.md)
+Big Data é sobre o volume de dados e sobre captura massiva. Mas também é sobre a análise dos dados. O aprendizado de máquina, que nada mais é do que a aplicação de técnicas estatísticas com a finalidade de previsão, classificação e agrupamento dos dados, é frequentemente associado à ideia imprecisa de Big Data.
+
+- No [Tutorial D1 - Introdução ao Aprendizado de Máquina](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialD1.md) veremos rapidamente e de forma bastante introdutória os alguns algoritmos de aprendizado de máquinas
+- Recomendo fortemente a leitura futura do livro James, G; Witten, D; Hastie, T ;and Tibshirani, R., (2013). [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/), disponibilizado gratuitamente pelos autores. Os capítulos 2, 3 e 10 tratam dos temas do tutorial acima.
+
+#### E - Microsoft R Client e o pacote RevoScaleR
+
+(Disponível apenas na quinta-feira e dependente de instalação de software)
+
+#### F - R, Spark e sparklyr para Aprendizado de Máquina
+
+(Disponível apenas na quinta-feira)
+
+### Pós-curso
+
+- [Shiny Apps](http://shiny.rstudio.com/) - Framework para construção de aplicativos e apresentação interativa de dados na web.
+- [Shiny Dashboards](http://rstudio.github.io/shinydashboard/index.html) - Pacote de R para criar Dashboard em Shiny
+- [R e Gis]() - Disponível aqui até o fim de junho
+- [R e texto]() - Disponível aqui até o fim de junho

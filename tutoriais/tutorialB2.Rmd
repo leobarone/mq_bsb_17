@@ -1,5 +1,29 @@
+# Tutorial B1 - R, DBMS e SQL-like databases
 
-## Queries em MySQL
+O fato de haver um conjunto limitado de bases de dados "do tipo SQL" (MySQL, PostgreSQL, SQLite, etc) com as quais podemos conectar com as funções do pacote _dplyr_ e aplicar os seus verbos não significa que estamos limitados a elas. Utilizando o pacote de _DBI_ (R Database Interface), podemos estabelecer conexão com outras DBMS ("Data Base Management Systems").
+
+Vamos repetir alguns passos do Tutorial B1 sem utilizar a biblioteca _dplyr_ de forma a ter uma solução genérica. Como nosso exemplo foi construído utilizando um servidor SQL, vamos usar a linguagem SQL neste tutorial.
+
+Comecemos instalando e carregando o pacote _DBI_:
+
+```{r}
+install.packages("DBI")
+library(DBI)
+```
+
+
+```{r}
+
+
+conexao <- dbConnect(MySQL(), 
+                 dbname = "tweater", 
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com", 
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+```
+
+
 
 Em primeiro lugar, chamamo o pacote _RMySQL_ e fazemos a conexão ao servidor remoto com _dbConnect_:
 
