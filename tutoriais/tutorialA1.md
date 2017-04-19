@@ -1,5 +1,18 @@
 # Tutorial A1 - Webscrapping do portal da transparência - tabelas
 
+Algumas das funções que vamos utilizar nesta atividade e nos outros tutoriais de Webscrapping não estão na biblioteca básica do R. Temos, dessa forma, que começar instalando uma biblioteca chamada "XML". Lembre-se que antes de usar as funções do R que não estão na biblioteca básica, precisamos instalar o pacote adequado e, então, "chama-los" para nossa biblioteca. Para instalar, execute o comando abaixo:
+
+```{r}
+install.packages("XML")
+```
+
+Uma vez instalada a biblioteca, as funções não estão automaticamente disponíveis. Para torná-las disponíveis é preciso "chamar" a biblioteca. Vamos fazer isso com a biblioteca "XML". Execute o comando abaixo:
+
+```{r}
+library(XML)
+```
+Excelente! Já temos as funções que precisamos disponíveis na nossa sessão. Vamos utilizá-las logo mais.
+
 ## For loop e links com numeração de página
 
 Vamos começar visitando o site portal da transparencia: http://www.portaldatransparencia.gov.br/ No site, vamos explorar os dados sobre servidores públicos federais. Clique na aba "Servidores" e escolha "por nome ou CPF". São 71.033 páginas contendo 15 servidores cada.
@@ -76,7 +89,7 @@ Muito mais simples do que parece, não? Mas veja bem, até agora tudo que fizemo
 
 ## Função readHTMLTable
 
-Ao longo do curso vamos explorar um pouco estas funções. Por enquanto, vamos usar apenas a função _readHTMLTable_, contida na biblioteca "XML" (lembra que chamamos esta biblioteca lá no começo da tutorial?). Esta função serve bem ao nosso caso: ela recebe uma url como argumento e captura todas as tabelas da url, escritas em HTML, e retorna uma lista contendo as tabelas. Vamos ver como ela funciona para a página 42 das 70 mil páginas contendo tabelas com nomes de servidores:
+Nos outros tutoriais de webscrapping vamos explorar outras funcionalidades do R para captura de dados em páginas da internet. Por enquanto, vamos usar apenas a função _readHTMLTable_, contida na biblioteca "XML" (lembra que chamamos esta biblioteca lá no começo da tutorial?). Esta função serve bem ao nosso caso: ela recebe uma url como argumento e captura todas as tabelas da url, escritas em HTML, e retorna uma lista contendo as tabelas. Vamos ver como ela funciona para a página 42 das 70 mil páginas contendo tabelas com nomes de servidores:
 
 ```{r}
 baseurl <- "http://www.portaldatransparencia.gov.br/servidores/Servidor-ListaServidores.asp?bogus=1&Pagina="
