@@ -18,24 +18,24 @@ Por exemplo, se quisermos organizar a informação sobre um indivíduo que assum
 <politicos>
   <politico>
     <id> 33333 </id>
-    <nome> Fulano Deputado da Silva </nome>
+    <nome> Fulana Deputada da Silva </nome>
     <data_nascimento> 3/3/66 </data_nascimento>
-    <sexo> Masculino </sexo>
+    <sexo> Feminino </sexo>
     <cargos>
       <cargo> 
-        <cargo> prefeito </cargo> 
+        <cargo> prefeita </cargo> 
         <partido> PAN </partido>
         <ano_ini> 2005 </ano_ini>
         <ano_fim> 2008 </ano_fim>
       </cargo>
       <cargo> 
-        <cargo> deputado federal </cargo> 
+        <cargo> deputada federal </cargo> 
         <partido> PAN </partido>
         <ano_ini> 2003 </ano_ini>
         <ano_fim> 2004 </ano_fim>
        </cargo>
        <cargo> 
-        <cargo> deputado estadual </cargo> 
+        <cargo> deputada estadual </cargo> 
         <partido> PAN </partido>
         <ano_ini> 1998 </ano_ini>
         <ano_fim> 2002 </ano_fim>
