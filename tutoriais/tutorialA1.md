@@ -1,5 +1,18 @@
 # Tutorial A1 - Webscrapping do portal da transparência - tabelas
 
+Algumas das funções que vamos utilizar nesta atividade e nos outros tutoriais de Webscrapping não estão na biblioteca básica do R. Temos, dessa forma, que começar instalando uma biblioteca chamada "XML". Lembre-se que antes de usar as funções do R que não estão na biblioteca básica, precisamos instalar o pacote adequado e, então, "chama-los" para nossa biblioteca. Para instalar, execute o comando abaixo:
+
+```{r}
+install.packages("XML")
+```
+
+Uma vez instalada a biblioteca, as funções não estão automaticamente disponíveis. Para torná-las disponíveis é preciso "chamar" a biblioteca. Vamos fazer isso com a biblioteca "XML". Execute o comando abaixo:
+
+```{r}
+library(XML)
+```
+Excelente! Já temos as funções que precisamos disponíveis na nossa sessão. Vamos utilizá-las logo mais.
+
 ## For loop e links com numeração de página
 
 Vamos começar visitando o site portal da transparencia: http://www.portaldatransparencia.gov.br/ No site, vamos explorar os dados sobre servidores públicos federais. Clique na aba "Servidores" e escolha "por nome ou CPF". São 71.033 páginas contendo 15 servidores cada.
@@ -8,7 +21,7 @@ Vamos começar visitando o site portal da transparencia: http://www.portaldatran
 71033 * 15 
 ```
 
-São 1.065.495 servidores ao todo!!!! Temos a informação de alguns dígitos do CPF, nome, orgão de lotação, orgão de exercício e jornada de trabalho. Todas essas informacoes são públicas!
+São 1.065.495 servidores ao todo!!!! Temos a informação de alguns dígitos do CPF, nome, orgão de lotação e orgão de exercício. Todas essas informacoes são públicas!
 
 Nossa primeira atividade consiste em capturar estas informações. Vamos, no decorrer da atividade aprender bastante sobre R, objetos, estruturas de dados, loops e captura de tabelas em HTML
 
@@ -76,7 +89,7 @@ Muito mais simples do que parece, não? Mas veja bem, até agora tudo que fizemo
 
 ## Função readHTMLTable
 
-Ao longo do curso vamos explorar um pouco estas funções. Por enquanto, vamos usar apenas a função _readHTMLTable_, contida na biblioteca "XML" (lembra que chamamos esta biblioteca lá no começo da tutorial?). Esta função serve bem ao nosso caso: ela recebe uma url como argumento e captura todas as tabelas da url, escritas em HTML, e retorna uma lista contendo as tabelas. Vamos ver como ela funciona para a página 42 das 70 mil páginas contendo tabelas com nomes de servidores:
+Nos outros tutoriais de webscrapping vamos explorar outras funcionalidades do R para captura de dados em páginas da internet. Por enquanto, vamos usar apenas a função _readHTMLTable_, contida na biblioteca "XML" (lembra que chamamos esta biblioteca lá no começo da tutorial?). Esta função serve bem ao nosso caso: ela recebe uma url como argumento e captura todas as tabelas da url, escritas em HTML, e retorna uma lista contendo as tabelas. Vamos ver como ela funciona para a página 42 das 70 mil páginas contendo tabelas com nomes de servidores:
 
 ```{r}
 baseurl <- "http://www.portaldatransparencia.gov.br/servidores/Servidor-ListaServidores.asp?bogus=1&Pagina="
@@ -187,7 +200,7 @@ for (i in 1:5) {
 
 Vamos observar o resultado utilizando a função _str_, que retorna a estrutura do data frame, e _tail_, que é como a função _head_, mas retorna as 6 últimas em vez das 6 primeiras observações.
 
-São 75 observações (5 páginas com 15 pessoas) e 5 variáveis (CPF, nome, órgão de lotação, órgão de exercício e jornada de trabalho), exatamente como esperávamos. As 5 variáveis são do tipo "character" contêm as informações corretas. As 6 observações apresentam o resultado adequado, o que nos dá uma boa dica que que tudo ocorreu bem até a última página capturada.
+São 75 observações (5 páginas com 15 pessoas) e 4 variáveis (CPF, nome, órgão de lotação e órgão de exercício), exatamente como esperávamos. As 4 variáveis são do tipo "character" contêm as informações corretas. As 6 observações apresentam o resultado adequado, o que nos dá uma boa dica que que tudo ocorreu bem até a última página capturada.
 
 ```{r}
 # Estrutura do data frame

@@ -18,24 +18,24 @@ Por exemplo, se quisermos organizar a informação sobre um indivíduo que assum
 <politicos>
   <politico>
     <id> 33333 </id>
-    <nome> Fulano Deputado da Silva </nome>
+    <nome> Fulana Deputada da Silva </nome>
     <data_nascimento> 3/3/66 </data_nascimento>
-    <sexo> Masculino </sexo>
+    <sexo> Feminino </sexo>
     <cargos>
       <cargo> 
-        <cargo> prefeito </cargo> 
+        <cargo> prefeita </cargo> 
         <partido> PAN </partido>
         <ano_ini> 2005 </ano_ini>
         <ano_fim> 2008 </ano_fim>
       </cargo>
       <cargo> 
-        <cargo> deputado federal </cargo> 
+        <cargo> deputada federal </cargo> 
         <partido> PAN </partido>
         <ano_ini> 2003 </ano_ini>
         <ano_fim> 2004 </ano_fim>
        </cargo>
        <cargo> 
-        <cargo> deputado estadual </cargo> 
+        <cargo> deputada estadual </cargo> 
         <partido> PAN </partido>
         <ano_ini> 1998 </ano_ini>
         <ano_fim> 2002 </ano_fim>
@@ -90,24 +90,24 @@ Em vez de:
 <politicos>
   <politico>
     <id> 33333 </id>
-    <nome> Fulano Deputado da Silva </nome>
+    <nome> Fulana Deputada da Silva </nome>
     <data_nascimento> 3/3/66 </data_nascimento>
-    <sexo> Masculino </sexo>
+    <sexo> Feminino </sexo>
     <cargos>
       <cargo> 
-        <cargo> prefeito </cargo> 
+        <cargo> prefeita </cargo> 
         <partido> PAN </partido>
         <ano_ini> 2005 </ano_ini>
         <ano_fim> 2008 </ano_fim>
       </cargo>
       <cargo> 
-        <cargo> deputado federal </cargo> 
+        <cargo> deputada federal </cargo> 
         <partido> PAN </partido>
         <ano_ini> 2003 </ano_ini>
         <ano_fim> 2004 </ano_fim>
        </cargo>
        <cargo> 
-        <cargo> deputado estadual </cargo> 
+        <cargo> deputada estadual </cargo> 
         <partido> PRONA </partido>
         <ano_ini> 1998 </ano_ini>
         <ano_fim> 2002 </ano_fim>
@@ -121,21 +121,21 @@ Teríamos:
 <politicos>
   <politico>
     <id> 33333 </id>
-    <nome> Fulano Deputado da Silva </nome>
+    <nome> Fulana Deputado da Silva </nome>
     <data_nascimento> 3/3/66 </data_nascimento>
-    <sexo> Masculino </sexo>
+    <sexo> Feminino </sexo>
     <cargos>
-      <cargo tipo = 'prefeito'>
+      <cargo tipo = 'prefeita'>
         <partido> PAN </partido>
         <ano_ini> 2005 </ano_ini>
         <ano_fim> 2008 </ano_fim>
       </cargo>
-      <cargo tipo = 'deputado federal'>
+      <cargo tipo = 'deputada federal'>
         <partido> PAN </partido>
         <ano_ini> 2003 </ano_ini>
         <ano_fim> 2004 </ano_fim>
        </cargo>
-      <cargo tipo = 'deputado estadual'>
+      <cargo tipo = 'deputada estadual'>
         <partido> PRONA </partido>
         <ano_ini> 1998 </ano_ini>
         <ano_fim> 2002 </ano_fim>
@@ -145,7 +145,7 @@ Teríamos:
 </politicos>
 ```
 
-Veja que agora a tag "cargo" tem um atributo -- "tipo" -- cujos valores são "prefeito", "deputado federal" ou "deputado estadual". Estranho, não? Para bancos de dados em formato XML, faz menos sentido o uso de atributos. Mas para páginas de internet, atributos são essenciais. Por exemplo, sempre que encontrarmos um hyperlink em uma página, contido sempre nas tags de nome "a", veremos apenas o "texto clicável" (conteúdo), pois o hyperlink estará, na verdade, no atributo "href".  Veja o exemplo
+Veja que agora a tag "cargo" tem um atributo -- "tipo" -- cujos valores são "prefeita", "deputada federal" ou "deputada estadual". Estranho, não? Para bancos de dados em formato XML, faz menos sentido o uso de atributos. Mas para páginas de internet, atributos são essenciais. Por exemplo, sempre que encontrarmos um hyperlink em uma página, contido sempre nas tags de nome "a", veremos apenas o "texto clicável" (conteúdo), pois o hyperlink estará, na verdade, no atributo "href".  Veja o exemplo
 
 ```{r}
 <a href = 'http://www.al.sp.gov.br/'> Vá o site da ALESP </a>
