@@ -126,4 +126,4 @@ Para gravar em CSV (ou nos demais formatos) utilizamos a família de funções �
 spark_write_csv(iris_tbl, "temp.csv")
 ```
 
-
+Como vimos acima de maneira rápida, a manipulação de dados com 

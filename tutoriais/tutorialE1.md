@@ -19,8 +19,10 @@ O primeiro passo para lidar com dados com a gramática do _RevoScaleR_ é transf
 Faremos um exemplo simples com dados gerados com simulação apra fins didáticos ("fake\_data"), disponíveis [aqui](https://raw.githubusercontent.com/leobarone/mq_bsb_17/master/dados/fake_data.csv). Vamos começar criando dois vetores atômicos de texto (vulgo, um objeto que só contém um texto), um com o endereço do arquivo .csv existente e outro com o endereço deseja para o futuro arquivo .xdf:
 
 ```{r}
-arquivo_csv <- "~/mq_bsb_17/dados/fake_data.csv"
-arquivo_xdf <- "~/mq_bsb_17/dados/fake_data.xdf"
+download.file("https://raw.githubusercontent.com/leobarone/FLS6397/master/data/fake_data.csv",
+              "fake_data.csv")
+arquivo_csv <- "fake_data.csv"
+arquivo_xdf <- "fake_data.xdf"
 ```
 
 A seguir, vamos utilizar a função _rxImport_ para gerar o arquivo .xdf. Apesar do nome, a função não carrega os dados na memória RAM. Há diversos argumentos para a função, mas, basicamente, precisamos apenas informar os dados que serão transformados e o arquivo .xdf que será gerado:
@@ -34,7 +36,8 @@ Se o resultado de rxImport for atribuído a um objeto, como no exemplo abaixo, t
 
 ```{r}
 fake_data <- rxImport(inData = arquivo_csv,
-                      outFile = arquivo_xdf)
+                      outFile = arquivo_xdf,
+                      overwrite = T)
 ```
 
 Para obter informações rápidas sobre o data frame externo usamos a função _rxGetInfo_
@@ -84,7 +87,7 @@ Para transformar os dados que estão em .xdf em data frame no R basta usar _rxXd
 ```{r}
 fake_data <- rxXdfToDataFrame(inData = arquivo_xdf,
          varsToKeep = c( "age", "income", "savings"),
-         rowSelection = age > 25
+         rowSelection = age > 25,
 	       transforms = list(prop_income_sav = income / savings,
 	                         savings_age = savings/ age,
 	                         age_months = age))
@@ -118,11 +121,14 @@ Há outras várias funções de manipulação de dados do _RevoScaleR_. Você en
 
 Ademais das funções de importação e manipulação de dados, o pacote _RevoScaleR_ oferece diversas funções para análise e aprendizado de máquina.
 
-Voltando a nossos dados originais, podemos realizar cruzamento de dados com _rxCrossTabs_ e _rxCube_:
+Voltando a nossos dados originais, podemos realizar cruzamento de dados com _rxCrossTabs_ e _rxCube_. Como essas funções dependem de variáveis do tipo "factor", vamos usar a função rxFactors para transformar "sex" e "educ" em factors e, a seguir, usar as funções que confeccionam tabela:
 
 ```{r}
-rxCrossTabs(formula = sex ~ educ, data = fake_data)
-rxCube(sex ~ educ, data = fake_data)
+fake_data <- rxFactors(inData = fake_data, factorInfo = c("sex", "educ"))
+rxCrossTabs(formula = ~ sex + educ, data = fake_data)
+rxCrossTabs(formula = income ~ sex + educ, data = fake_data)
+rxCube(formula = ~ sex + educ, data = fake_data)
+rxCube(formula = income ~ sex + educ, data = fake_data)
 ```
 
 Calcular uma matriz de correlações, novamente usando o argumento "formula":
