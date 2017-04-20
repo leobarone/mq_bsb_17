@@ -1,4 +1,4 @@
-# Análise e Sistematização de Big Data
+  # Análise e Sistematização de Big Data
 
 Bem vind@s à página do curso "Análise e Sistematização de Big Data". Nesta página você encontrará os tutoriais, dados, e demais materiais que utilizaremos no curso, organizados por dia.
 
@@ -38,7 +38,9 @@ Como conversamos em sala, vamos trabalhar diferentes "faces" do termo "Big Data"
 
 Antes de avançar, porém, tenha certeza que você terminou os tutoriais básicos de R. Os fundamentais são os tutoriais 1 a 3.
 
-OBS: adicionei ao final do tutorial 3 uma breve explicação sobre exportação de arquivos no R. Se já tiver concluído este tutorial, volte a ele quando precisar.
+OBS1: adicionei ao final do tutorial 3 uma breve explicação sobre exportação de arquivos no R. Se já tiver concluído este tutorial, volte a ele quando precisar.
+
+OBS2: vou adicionar na quinta-feira os tópicos avulsos que comentar em sala, como datas, e o que mais surgir hoje.
 
 - A leitura obrigatória para as duas últimas aulas é: Aquino (2014) [R para cientistas sociais](http://www.uesc.br/editora/livrosdigitais_20140513/r_cientistas.pdf), capítulo 7 e 8.
 
@@ -57,11 +59,14 @@ Neste tópico você aprenderá a raspar dados de páginas de internet. Uma das v
 O R trabalha regurlamente armazenando os dados na RAM. Quando o volume de dado superar a memória RAM temos de buscar outras soluções. A solução mais simples é utilizar um sistema de gerenciamento de banco de dados (SGBD) que permita superar os limites de armazenamento de dados. Uma das soluções mais simples é utilizar um SGBD para a qual há pacotes em R que facilitem a conexão e manipulação de dados.
 
 - Para ver como trabalhar com dados em MySQL, PostgreSQL, MariaDB, SQLite e BigQuery, faça o [Tutorial B1 - R, dplyr e SQL](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB1.md). A grande vantagem de integram algum desses SGBD com o R é o fato de que não precisamos conhecer nada da linguagem SQL para manipular os dados no servidor (local ou remoto). Basta utilizar os verbos do _dplyr_ que vimos nos tutoriais anteriores.
+
+NOTA: Tutorial atualizado para lidar com os problemas que apareceram em sala de aula com um servidor PostgreSQL e com uma pequena adição ao final para gerar tabelas permanentemente no servidor.
+
 - Por conta da demanda de trabalho dos participantes do curso, apresento um tutorial rápido para conexão e manipulação de dados no TeraData via R no Tutorial B2 (em breve).
 
 #### C - Dados volumosos com R - bibliotecas do R
 
-(Disponível apenas na quinta-feira)
+(Em breve)
 
 #### D - Uma rápida introdução ao aprendizado de máquina com R
 
@@ -72,11 +77,15 @@ Big Data é sobre o volume de dados e sobre captura massiva. Mas também é sobr
 
 #### E - Microsoft R Client e o pacote RevoScaleR
 
-(Disponível apenas na quinta-feira e dependente de instalação de software)
+Uma das soluções atraentes de Big Data no R, porém com software proprietário, é utilizar o Microsoft R Client e as funções do pacote _RevoScaleR_. É uma solução atraente por 3 razões: 1- permite computação em outros "contextos", como Teradata, Haddop e servidores SQL; 2- oferece uma solução para computação local que não está limitada pelo tamanho da RAM; e 3- oferece bons algoritmos para aprendizado de máquina.
+
+É preciso instalar o Microsoft R Client e você encontra informações sobre a instalação [aqui](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started), disponível para Microsoft e Linux.
+
+- Faça o [Tutorial E1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialE1.md) para uma breve introdução à "gramática" do _RevoScaleR_ e suas funções para aprendizado de máquina. Dicas de onde continuar aprendendo e como integrar com Teradata no tutorial.
 
 #### F - R, Spark e sparklyr para Aprendizado de Máquina
 
-(Disponível apenas na quinta-feira)
+(Disponível apenas na quinta-feira e dependente de instalação de software adicional)
 
 ### Pós-curso
 

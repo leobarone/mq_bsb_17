@@ -12,7 +12,6 @@ library(dplyr)
 library(RMySQL)
 ```
 
-
 O primeiro passo importante para trabalhar com dados em um servidor MySQL é fazer a conexão com uma base de dados. Vamos supor que temos um banco de dados (que, para o MySQL, significa um conjunto de tabelas, e não apenas uma tabela) chamado "PBF" em um servidor local, ou seja, no próprio computador, e que dentro desse banco de dados existe a tabela "transferencias201701". O usuário e senha fictícias são, respectivamente, "root" e "pass". Usamos, então, a função _src\_mysql_ para criar um objeto de "conexão", que chamaremos de "bd_mysql". Obviamente, o código abaixo não funcionará no seu computador, pois tal servidor não existe.
 
 ```{r}
@@ -24,7 +23,13 @@ conexao <- src_mysql(dbname = "PBF",
 A seguir, criamos um objeto "tabela", que mantém a conexão direto com a tabela "transferencias201701" que está no banco de dados "PBF".
 
 ```{r}
-tabela <- tbl(conexao, "transferencias201701")
+tabela <- tbl(conexao, "pagamentos201701")
+```
+
+NOTA IMPORTANTE: nos testes que fizemos em sala de aula com uma conexão a um servidor PostgreSQL, tivemos que substituir o nome da tabela por um "statment" de SQL. Vamos supor que nossa tabela tenha o nome "tabela" e esteja num schema denominado "schema". Para repetir o comando acima neste caso fazemos:
+
+```{r}
+tabela <- tbl(conexao, sql("SELECT * FROM schema.tabela"))
 ```
 
 Simples, não? A partir deste ponto, basta trabalhar com objeto "tabela" da mesma maneira que trabalhamos _data frames_ até agora. A gramática oferecida pelo pacote _dplyr_ funciona normalmente e, quando quisermos, podemos exportar os dados com os métodos acima.
@@ -159,3 +164,47 @@ tabela <- as.data.frame(tweats)
 ```
 
 Note que "tabela", diferentemente de "tweats", é um _data frame_ no seu _workspace_.
+
+## Tabelas temporárias _versus_ criação de tabelas no MySQL
+
+Quando utilizamos os verbos do _dplyr_ para manipulação de dados em servidor MySQL, todas as consultas são geradas como tabelas temporárias no servidor. Como fazer com que as consultas se tornem tabelas permanentes no servidor?
+
+Vamos trabalhar com um servidor fictício, pois não temos permissão para gerar tabelas no servidor que utilizamos como exemplo no tutorial. Vamos supor que temos uma tabela "pagamentos201701" na nossa base de dados "PBF" e que tal tabela contém uma variável "UF" para unidades da federação:
+
+```{r}
+conexao <- src_mysql(dbname = "PBF", 
+                   user = "root",
+                   password = "pass")
+tabela <- tbl(conexao, "pagamentos201701")
+minha_query <- tabela %>% filter(UF == "ES")
+```
+
+Ao produzir o comando acima, na prática, nada aconteceu. A execução da query só ocorrerá quando tentarmos trazer a tabela para a memória ("fetch") ou explicitarmos que ela deve ser computada.
+
+Se quisermos trazer os dados para a memória, utilizamos a função _collect_.
+
+```{r}
+pagamentos_es <- collect(minha_query)
+```
+
+Ao usar o comando _collect_, a query é executada no servidor e os dados enviados ao R.
+
+O caminho inverso -- subir ao servidor uma tabela -- é feito com a função _copy\_to_
+
+```{r}
+copy_to(dest = conexao, df = pagamentos_es, name = "pagamentos201701_es")
+```
+
+No entanto, _copy\_to_ não geram uma nova tabela no servidor. Para que uma nova tabela seja gerada, é preciso definir o argumento "temporary" como "FALSE" (o padrão é "TRUE"): 
+
+```{r}
+copy_to(dest = conexao, df = pagamentos_es, name = "pagamentos201701_es", temporary = FALSE)
+```
+
+Para executar a query no servidor sem que precisemos trazer a tabela e reenviá-la devemos usar a função _compute_, que também tem o argumento "temporary".
+
+```{r}
+compute(minha_query, name = "pagamentos201701_es", temporary = FALSE)
+```
+
+Sem definir "temporary" como "FALSE", a query será executada e a tabela gerada será temporária, apenas.

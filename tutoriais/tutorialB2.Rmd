@@ -12,6 +12,11 @@ library(DBI)
 ```
 
 
+
+```{r}
+drv <- dbManager("MySQL")
+```
+
 ```{r}
 
 

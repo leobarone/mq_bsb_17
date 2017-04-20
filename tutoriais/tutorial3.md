@@ -202,7 +202,7 @@ Use _View_ para observar que a base de dados original tem agora 7 novas colunas 
 - A seguir, calcule quanto cada indivíduo na amostra representa, em termos percentuais (dica: crie uma nova variável utilizando _mutate_). 
 
 
-# Tutorial 6 - Exportando dados
+# Exportando dados
 
 Vamos começar a tarefa simples de exportar uma tabela. Vamos usar como exemplo o _data frame_ "valores_munic" que criamos ao final do tutorial anterior.
 

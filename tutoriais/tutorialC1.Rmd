@@ -1,3 +1,15 @@
+ff - dados no disco, não na RAM
+suporte à paralelização
+-
+
+```{r}
+library(ff)
+fake_bd <- read.csv.ffdf(file = "~/mq_bsb_17/dados/fake_data.csv", sep = ";")
+str(fake_bd)
+```
+
+
+
 For medium sized data sets which are too-big for in-memory processing but too-small-for-distributed-computing files, following R Packages come in handy.
 
 
