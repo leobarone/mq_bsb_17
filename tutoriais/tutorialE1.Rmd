@@ -1,3 +1,10 @@
+---
+title: "RevoScaler"
+author: "Leo"
+date: "April 19, 2017"
+output: pdf_document
+---
+
 # Tutorial B1 - RevoScaleR
 
 Neste tutorial vamos ver um breve introdução ao pacote _RevoScaleR_. Infelizmente, _RevoScaleR_ não é um pacote disponível para a distribuiçao open-source do R e para utilizá-la devemos instalar o Microsoft R Client, disponível apenas para Windows.
