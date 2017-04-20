@@ -73,7 +73,7 @@ rxSummary(formula = ~ income + savings + age,
 Podemos produzir um histograma com _rxHistogram_, que utiliza os mesmos argumentos de _rxSummary_:
 
 ```{r}
-rxHistogram(formula = ~age, 
+rxHistogram(formula = ~ age, 
             data = fake_data)
 ```
 
@@ -86,17 +86,6 @@ No exemplo abaixo, manteremos apenas as variáveis "age", "income" e "savings", 
 ```{r}
 arquivo2_xdf <- "~/mq_bsb_17/dados/fake_data2.xdf"
 rxDataStep(inData = arquivo_xdf, 
-         varsToKeep = c( "age", "income", "savings"),
-         rowSelection = age > 25
-	       transforms = list(prop_income_sav = income / savings,
-	                         savings_age = savings/ age,
-	                         age_months = age))
-```
-
-Para transformar os dados que estão em .xdf em data frame no R basta usar _rxXdfToDataFrame_, que permite, como _rxDataStep_, seleção de linhas, colunas e operação de variáveis:
-
-```{r}
-fake_data <- rxXdfToDataFrame(inData = arquivo_xdf,
          varsToKeep = c( "age", "income", "savings"),
          rowSelection = age > 25,
 	       transforms = list(prop_income_sav = income / savings,
@@ -122,7 +111,7 @@ pagamentos17 <- rxImport(inData = "pagamentos17.csv",
 rxMerge(inData1 = "pagamentos11.xdf", 
         inData2 = "pagamentos17.xdf",
         outFile = "pagamentos.xdf", 
-        matchVars = "NIS",
+        matchVars = "NIS Favorecido",
         type = "inner")
 ```
 
