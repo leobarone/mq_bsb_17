@@ -26,7 +26,7 @@ A seguir, criamos um objeto "tabela", que mantém a conexão direto com a tabela
 tabela <- tbl(conexao, "pagamentos201701")
 ```
 
-NOTA IMPORTANTE: nos testes que fizemos em sala de aula com uma conexão a um servidor PostgreSQL, tivemos que substituir o nome da tabela por um "statment" de SQL. Vamos supor que nossa tabela tenha o nome "tabela" e esteja num schema denominado "schema". Para repetir o comando acima neste caso fazemos:
+NOTA IMPORTANTE: nos testes que fizemos em sala de aula com uma conexão a um servidor PostgreSQL, tivemos que substituir o nome da tabela por um "statment" de SQL (veja [Issue 244 no repo do dplyr](https://github.com/tidyverse/dplyr/issues/244) para a solução). Vamos supor que nossa tabela tenha o nome "tabela" e esteja num schema denominado "schema". Para repetir o comando acima neste caso fazemos:
 
 ```{r}
 tabela <- tbl(conexao, sql("SELECT * FROM schema.tabela"))

@@ -1,4 +1,4 @@
-  # Análise e Sistematização de Big Data
+# Análise e Sistematização de Big Data
 
 Bem vind@s à página do curso "Análise e Sistematização de Big Data". Nesta página você encontrará os tutoriais, dados, e demais materiais que utilizaremos no curso, organizados por dia.
 
@@ -60,7 +60,7 @@ O R trabalha regurlamente armazenando os dados na RAM. Quando o volume de dado s
 
 NOTA: Tutorial atualizado para lidar com os problemas que apareceram em sala de aula com um servidor PostgreSQL e com uma pequena adição ao final para gerar tabelas permanentemente no servidor.
 
-- Por conta da demanda de trabalho dos participantes do curso, apresento um tutorial rápido para conexão e manipulação de dados no Teradata via R usando ODBC no [Tutorial B2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB1.md).
+- Por conta da demanda de trabalho dos participantes do curso, apresento um tutorial rápido para conexão e manipulação de dados no Teradata via R usando ODBC no [Tutorial B2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB2.md).
 
 #### C - Dados volumosos com R - bibliotecas do R
 
