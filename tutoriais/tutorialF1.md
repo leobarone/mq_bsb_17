@@ -2,12 +2,9 @@ Apache Spark é um framework de código aberto para computação e processamento
 
 Como _RevoScaleR_ (Tutorial E1), _sparklyr_ é uma alternativa para "escalabilidade", ou seja, para levar a computação em uma única máquina para a computação distribuída em várias.
 
-Para a finalidade deste curso, a combinação Spark e R é uma opção para trabalhar com dados volumosos, seja em computação em um único 
-
 _sparklyr_ foi é um pacote desenvolvido pela RStudio que tornou o processamento de "big data" em R relativamente mais simples. A grande vantagem do pacote é oferecer a possibilidade manipular dados em Spark com os comandos da biblioteca _dplyr_, exatamente como vimos nos tutoriais anteriores (Tutoriais 2 e 3). Como Spark tem uma API que permite a realização de queries em _SQL_, e vimos no Tutorial B1 que _dplyr_ pode ser usado para queries em SQL, a integração Spark e R via _dplyr_ é facilitada.
 
 Loads data into Spark DataFrames from: local R data frames, Hive tables, CSV, JSON, and Parquet files.
-
 
 bem como um conjunto de bibliotecas que o tornam capaz de trabalhar de forma integrada, em uma mesma aplicação, com SQL, streaming e análises complexas, para lidar com uma grande variedade de situações de processamento de dados
 
@@ -52,6 +49,8 @@ spark_disconnect(sc)
 
 ## dplyr e Spark
 
+Antes de começar, uma dica: há um [CheatSheet para sparklyr](http://spark.rstudio.com/images/sparklyr-cheatsheet.pdf) da RStudio
+
 A principal vantagem do _sparklyr_ é permitir a manipulação de dados no cluster Spark com os verbos do _dplyr_. Vamos ver exemplos simples com uma conexão a um Spark local para manipular tabelas e produzir análises utilizando os algoritmos de aprendizado de máquina que vimos no Tutorial D1.
 
 Começaremos enviando dados ao cluter. Faremos isso de duas maneiras: abrindo dados na memória para depois enviá-los; e abrindo diretamente no cluster. O pacote _sparklyr_ permite o carregamento de dados em vários formatos, como csv, json e parquet.
@@ -84,7 +83,6 @@ data(iris)
 Vamos agora enviá-los ao servidor utilizando a função _copy\_to_:
 
 ```{r}
-?copy_to
 wage_tbl <- copy_to(sc, Wage)
 diamonds_tbl <- copy_to(sc, diamonds)
 titanic_tbl <- copy_to(sc, titanic_train)
@@ -137,7 +135,7 @@ fake_data_tbl %>%
   mutate(idade_meses = idade * 12)
 ```
 
-- iris
+- iris:
 
 ```{r}
 iris_tbl %>% 
@@ -146,13 +144,80 @@ iris_tbl %>%
             media_largura_petala = mean(Petal_Width))
 ```
 
-- Wage
+- Wage:
 
 ```{r}
 wage_tbl %>%
-  group_by(race%>%
+  group_by(race) %>%
   summarise(salario_medio = mean(wage),
             desvio_salario = sd(wage))
 ```
 
-Nada que não tenhamos visto anteriormente.
+Nada que não tenhamos visto anteriormente e podemos trabalhar no ambiente R integrado com Spark sem precisar aprender outras gramáticas da linguagem.
+
+## Aprendizado de máquina no Spark
+
+Spark é um framework pensado para análise de dados volumosos com velocidade. Por esta razão, aprendizado de máquina é uma das funcionalidades disponíveis em Spark e há diversos algoritmos implementados. O pacote _sparklyr_ oferece funções para os algoritmos e vejamos algumas repetindo dois (não exatamente, mas aproximadamente) do Tutorial D1.
+
+### Regressão linear e previsão de salários e preço de diamantes
+
+Os data frame "Wage" contém dados de salários e características de indivíduos. Nosso objetivo é produzir um modelo linear para prever a variável "wage" (salário) a partir da variável "age" (idade). A função do _sparklyr_ equivalente à _lm_ (regressão linear) é _ml\_linear\_regression. Os dois argumentos principais são o objeto que representa a tabela no cluster -- no nosso caso "wage_tbl" -- e a fórmula.
+
+```{r}
+modelo_linear <- ml_linear_regression(wage_tbl, wage ~ age)
+summary(modelo_linear)
+```
+
+Se quiséssemos separar os dados entre um data frame de treino e outro de teste, bastaria utlizar as funções do _dplyr_. A função sdf\_partition separa os dados em partições que podem ser usadas para treino e teste, como abaixo: 
+
+```{r}
+particoes <- sdf_partition(wage_tbl, treino = 0.75, teste = 0.25)
+```
+
+Note que o objeto partições contém dois data frames. Para acessar a partição de treino, por exemplo, usamos "particoes$treino". Aplicando o modelo linear a esta partição temos:
+
+```{r}
+modelo_linear <- ml_linear_regression(particoes$treino, wage ~ age)
+summary(modelo_linear)
+```
+
+Finalmente, para armazenar os valores previstos utilizamos _sdf\_predict_. Para reduzir o resultado a apenas os valores observados e previstos, podemos adicionar a função _select_:
+
+```{r}
+previsto <- sdf_predict(modelo_linear, particoes$teste) %>% 
+  select(wage, prediction)
+```
+
+Note que não há nada de muito diferente na produção de um modelo de previsão com regressão linear com as funções do _sparklyr_ em relação ao que podemos fazer com as bibliotecas básicas.
+
+Um outro exemplo da própria documentação do pacote _sparklyr_ pode ser encontrado [aqui](http://spark.rstudio.com/mllib.html#linear_regression).
+
+### Kmeans Cluster e agrupamento de espécies de Flores
+
+Para encerrar, vamos refazer nosso exemplo de Kmeans cluster com as funções do pacote _sparklyr_. Note que não há no pacote algo semelhante ao algoritmo de cluster hierárquico, pois a demanda de memória para gerar uma matriz de distâncias necessária à classificação de muitas observações é demasiada mesmo para um cluster Spark.
+
+Vamos utilizar novamente os dados "iris", uma clássico da literatura de aprendizado de máquina. Para simplificar, vamos utilizar apenas as informações sobre comprimento ("Sepal_Length" e "Petal_Length"):
+
+```{r}
+iris2_tbl <- iris_tbl %>%
+  select(Sepal_Length, Petal_Length) 
+```
+
+A função ml\_kmeans recebe dois argumentos básicos: o objeto que representa o data frame no cluster e o número de grupos que desejamos formar:
+
+```{r}
+modelo_kmeans <- ml_kmeans(iris2_tbl, centers = 3)
+```
+
+Tal como com modelos lineares, usamos _sdf\_predict_ para produzir um vetor com os grupos aos quais cada observação pertence:
+
+```{r}
+grupos <- sdf_predict(modelo_kmeans, iris2_tbl) %>% select(prediction)
+```
+
+Tão simples quanto se utilizássemos as biblitecas básicas.
+
+Novamente, uma exemplo com os mesmos dados da documentação do pacote _sparklyr_ pode ser encontrado [aqui](http://spark.rstudio.com/mllib.html#k-means_clustering).
+
+
+

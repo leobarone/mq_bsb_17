@@ -40,8 +40,6 @@ Antes de avançar, porém, tenha certeza que você terminou os tutoriais básico
 
 OBS1: adicionei ao final do tutorial 3 uma breve explicação sobre exportação de arquivos no R. Se já tiver concluído este tutorial, volte a ele quando precisar.
 
-OBS2: vou adicionar na quinta-feira os tópicos avulsos que comentar em sala, como datas, e o que mais surgir hoje.
-
 - A leitura obrigatória para as duas últimas aulas é: Aquino (2014) [R para cientistas sociais](http://www.uesc.br/editora/livrosdigitais_20140513/r_cientistas.pdf), capítulo 7 e 8.
 
 #### A - Capturando dados com R
@@ -62,11 +60,11 @@ O R trabalha regurlamente armazenando os dados na RAM. Quando o volume de dado s
 
 NOTA: Tutorial atualizado para lidar com os problemas que apareceram em sala de aula com um servidor PostgreSQL e com uma pequena adição ao final para gerar tabelas permanentemente no servidor.
 
-- Por conta da demanda de trabalho dos participantes do curso, apresento um tutorial rápido para conexão e manipulação de dados no TeraData via R no Tutorial B2 (em breve).
+- Por conta da demanda de trabalho dos participantes do curso, apresento um tutorial rápido para conexão e manipulação de dados no Teradata via R usando ODBC no [Tutorial B2](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialB1.md).
 
 #### C - Dados volumosos com R - bibliotecas do R
 
-(Em breve)
+NOTA: Como ampliamos o número de tópicos do curso e decidimos priorizar aqueles mais relevantes para vocês, acabamos por deixar esse tema de lado. Trabalhar com as bibliotecas básicas do R para superar os problemas de dados que não cabem na RAM se tornou a opção menos atrativa. Vou manter o tópico indicado aqui e subo o tutorial C1 na próxima semana para quem tiver interesse.
 
 #### D - Uma rápida introdução ao aprendizado de máquina com R
 
@@ -85,7 +83,11 @@ Uma das soluções atraentes de Big Data no R, porém com software proprietário
 
 #### F - R, Spark e sparklyr para Aprendizado de Máquina
 
-(Disponível apenas na quinta-feira e dependente de instalação de software adicional)
+Apache Spark é um framework de código aberto para computação e processamento de dados em paralelo e é uma das soluções mais atraentes para aprendizado de máquina com velocidade e para um grande volume de dados. Com o pacote _sparklyr_, da RStudio, conectar R e Spark é bastante simples, pois podemos utiliar os verbos do _dplyr_ e as funções básicas de aprendizado de máquina estão implementadas.
+
+- No [Tutorial F1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialF1.md) veremos um pouco do pacote _sparklyr_.
+
+- Ainda há pouca documentação sobre _sparklyr_ e a [homepage do projeto](http://spark.rstudio.com/) é o melhor lugar a buscar.
 
 ### Pós-curso
 
@@ -93,3 +95,5 @@ Uma das soluções atraentes de Big Data no R, porém com software proprietário
 - [Shiny Dashboards](http://rstudio.github.io/shinydashboard/index.html) - Pacote de R para criar Dashboard em Shiny
 - [R e Gis]() - Disponível aqui até o fim de junho
 - [R e texto]() - Disponível aqui até o fim de junho
+- [Datas com lubridate](http://r4ds.had.co.nz/dates-and-times.html) - capítulo 16 de R for Data Science
+- Guia de instalação de R e Rstudio [aqui](http://www.leg.ufpr.br/~fernandomayer/ensino/ce083-2015-02/ce083-2015-02-instalacao-R.html)
