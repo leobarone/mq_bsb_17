@@ -80,6 +80,7 @@ Uma das soluções atraentes de Big Data no R, porém com software proprietário
 É preciso instalar o Microsoft R Client e você encontra informações sobre a instalação [aqui](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started), disponível para Microsoft e Linux.
 
 - Faça o [Tutorial E1](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialE1.md) para uma breve introdução à "gramática" do _RevoScaleR_ e suas funções para aprendizado de máquina. Dicas de onde continuar aprendendo e como integrar com Teradata no tutorial.
+- Como não haverá instalação do Microsoft R Client no laboratório, você pode preferir fazer o [Tutorial E1 na versão pdf](https://github.com/leobarone/mq_bsb_17/blob/master/tutoriais/tutorialE1.pdf), no qual os resultados dos códigos estão impressos.
 
 #### F - R, Spark e sparklyr para Aprendizado de Máquina
 

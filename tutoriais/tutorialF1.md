@@ -219,5 +219,9 @@ Tão simples quanto se utilizássemos as biblitecas básicas.
 
 Novamente, uma exemplo com os mesmos dados da documentação do pacote _sparklyr_ pode ser encontrado [aqui](http://spark.rstudio.com/mllib.html#k-means_clustering).
 
+## Mais sobre Spark e computação em nuvem
 
+Há pelo menos duas das grandes empresas de computação em nuvem que se adiantaram para criar produtos que integrem Spark, R e Rstudio. Indico dois tutoriais de como configurar um cluster de Spark+RStudio na nuvem:
 
+- AWS - [RStudio’s R Interface to Spark on Amazon EMR](https://aws.amazon.com/blogs/big-data/running-sparklyr-rstudios-r-interface-to-spark-on-amazon-emr/)
+- Cloudera - [Sparklyr (R interface for Spark) and Kerberos on Cloudera](https://medium.com/@bkvarda/sparklyr-r-interface-for-spark-and-kerberos-on-cloudera-80abf5f6b4ad)

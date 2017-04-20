@@ -1,8 +1,0 @@
-# Tutorial B2 - R, conexão ODBC e Teradata
-
-Neste brevíssimo tutorial vamos explorar uma possibilidade de conexão entre R e Teradata via ODBC.
-
-```{r}
-
-```
-
